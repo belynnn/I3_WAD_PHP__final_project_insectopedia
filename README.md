@@ -29,12 +29,12 @@ La fonctionnalité principale est de permettre à un·e utilisateurice d'encoder
 ### 1. MCD
 Création d'un Modèle de Conception de Données
 
-![insectopedia_MCD](https://cdn.discordapp.com/attachments/1262106517859991723/1262130138951192588/insectopedia2.png?ex=669579ca&is=6694284a&hm=c77c428bccf8183a71bc80cad0727f51e600663d573b20813cd7e1dbb70049ee&)
+![insectopedia_MCD](https://cdn.discordapp.com/attachments/1262106517859991723/1262430295488204820/MCD.png?ex=66969155&is=66953fd5&hm=5b3f7b6795e1091db8e1f1d836bbb48d5af3505c73eec73c8ea71595bdeeebcc&)
 
 ### 2. MLD
 Création d'un Modèle Logique de Données
 
-![insectopedia_MLD](https://cdn.discordapp.com/attachments/1262106517859991723/1262148032078676199/insectopedia_MLD.png?ex=66958a74&is=669438f4&hm=3b7c6602330a0b12cc31ab752a5166004f26126e5019823c2776ad15e7ba671d&)
+![insectopedia_MLD](https://cdn.discordapp.com/attachments/1262106517859991723/1262430295731212318/MLD.png?ex=66969155&is=66953fd5&hm=a72c5ae8160d059f23c246319647a115bd2a28e1f57a0ffd8dc9ac8701aff797&)
 
 ### 3. Fonctionnalité d'inscription
 Pour débuter ce projet, il est primordial d'établir la fonctionnalité d'inscription. Pour cela, l'utilisation de [GIT](https://git-scm.com/) et [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) est d'une aide précieuse, avec la création d'une branche 'develop', ainsi qu'un flow 'feature/inscription', sur base de la branche 'develop'.
