@@ -3,7 +3,7 @@ English below
 Repo contenant l'élaboration du projet final du cours de PHP, de la formation Web Application Develope, organisée par le centre de formation Interface3, à Bruxelles.
 
 Le but principal de cette application est de donner accès à des informations spécifiques concernant des insectes que nous avons tendance à mal identifier. Comme par exemple, pouvoir différencier une larve de cétoine, d'une larve d'hanneton, ou encore de reconnaître un frelon européen, d'un frelon asiatique.
-<a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noopener">HTML</a>
+
 ## Outils utilisés
 | Frontend                                              | Backend                                                            | Base de données             | Gestion de projet                                  | Autres |
 |---|---|---|---|---|
