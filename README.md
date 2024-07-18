@@ -5,16 +5,16 @@ Repo contenant l'élaboration du projet final du cours de PHP, de la formation W
 Le but principal de cette application est de donner accès à des informations spécifiques concernant des insectes que nous avons tendance à mal identifier. Comme par exemple, pouvoir différencier une larve de cétoine, d'une larve d'hanneton, ou encore de reconnaître un frelon européen, d'un frelon asiatique.
 
 ## Outils utilisés
-| Frontend                                              | Backend                                                            | Base de données             | Gestion de projet                                  | Autres |
+| Frontend | Backend | Base de données | Gestion de projet | Autres |
 |---|---|---|---|---|
-| **Sémantique**                                        | [PHP](https://www.php.net/)                                        | [SQL](https://sql.sh/)      | [GIT](https://git-scm.com/)                        | [Perplexity AI](https://www.perplexity.ai/) |
-| [HTML](https://developer.mozilla.org/fr/docs/Web/HTML)| [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript) | **Application web de SGBD** | [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | |
-| **Style**                                             | [AJAX](https://developer.mozilla.org/fr/docs/Glossary/AJAX)        | [phpmyadmin](https://www.phpmyadmin.net/) | [GitHub](https://github.com/)                                             | |
-| [CSS](https://developer.mozilla.org/fr/docs/Web/CSS)  | **Serveur**                                                        | **Système de base de données (SGBD)**     | [Gitmoji](https://gitmoji.dev/)                                           | |
-| [Bootstrap](https://getbootstrap.com/)                | [XAMPP](https://www.apachefriends.org/fr/index.html)               | [MySQL](https://www.mysql.com/fr/)        | **MCD / MLD / Diagrammes / ...**                                          | |
-| **Design**                                            |                                                                    |                                           | [draw.io](https://app.diagrams.net/)                                      | |
-| [Font Awesome](https://fontawesome.com/)              |                                                                    |                                           | [dbdiagram.io](https://dbdiagram.io/home)                                 | |
-| [LOGO](https://logo.com/)                             |                                                                    |                                           |                                                                           | |
+| **Sémantique** | [PHP](https://www.php.net/) | [SQL](https://sql.sh/) | [GIT](https://git-scm.com/) | [Perplexity AI](https://www.perplexity.ai/) |
+| [HTML](https://developer.mozilla.org/fr/docs/Web/HTML) | [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript) | **Application web de SGBD** | [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | [Excalidraw](https://excalidraw.com/) |
+| **Style** | [AJAX](https://developer.mozilla.org/fr/docs/Glossary/AJAX) | [phpmyadmin](https://www.phpmyadmin.net/) | [GitHub](https://github.com/) | |
+| [CSS](https://developer.mozilla.org/fr/docs/Web/CSS) | **Serveur** | **Système de base de données (SGBD)** | [Gitmoji](https://gitmoji.dev/) | |
+| [Bootstrap](https://getbootstrap.com/) | [XAMPP](https://www.apachefriends.org/fr/index.html) | [MySQL](https://www.mysql.com/fr/) | **MCD / MLD / Diagrammes / ...** | |
+| **Design** | | | [draw.io](https://app.diagrams.net/) | |
+| [Font Awesome](https://fontawesome.com/) | | | [dbdiagram.io](https://dbdiagram.io/home) | |
+| [LOGO](https://logo.com/) | | | | |
 
 ### Fonctionnalité principale
 La fonctionnalité principale est de permettre à un·e utilisateurice d'encoder des observations, en partageant différentes informations spécifiques relative à une observation, ainsi que, si l'utilisateurice le souhaite, ajouter 3 photos maximum.
