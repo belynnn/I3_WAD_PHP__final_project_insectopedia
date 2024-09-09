@@ -1,4 +1,7 @@
 English below
+# TODO
+- Supprimer les fichiers obsolètes (index.php par ex.)
+
 # [FR] 🐛 Insectopedia - PHP Final Project
 Repo contenant l'élaboration du projet final du cours de PHP, de la formation Web Application Develope, organisée par le centre de formation Interface3, à Bruxelles.
 
