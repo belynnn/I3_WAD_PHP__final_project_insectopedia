@@ -2,26 +2,32 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Insecte;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class InsectController extends AbstractController
 {
     // Liste de tous les insectes
-    #[Route('/insects', name: 'app_insects')]
-    public function insects(): Response
+    #[Route('/insect/all')]
+    public function listInsect(ManagerRegistry $doctrine)
     {
-        return $this->render('insects/insects.html.twig', [
-            'controller_name' => 'InsectController',
-        ]);
+        $em = $doctrine->getManager();
+        $rep = $em->getRepository(Insecte::class);
+
+        $insectes = $rep->findAll();
+        $vars = ['insectes' => $insectes];
+        
+        return $this->render('insect/listInsect.html.twig', $vars);
     }
 
     // Page d'un insecte spécifique
-    #[Route('/insects/{id}', name: 'app_insects')]
+    #[Route('/insect/{id}', name: 'app_insect')]
     public function insect(): Response
     {
-        return $this->render('insects/insect.html.twig', [
+        return $this->render('insect/insect.html.twig', [
             'controller_name' => 'InsectController',
         ]);
     }

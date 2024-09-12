@@ -3,5 +3,12 @@
 {% block title %}Hello InsectController!{% endblock %}
 
 {% block body %}
+
 LISTE DES INSECTES
+{% for insecte in insectes %}
+    <li>{{ insecte.nomInsecte }}</li>
+{% else %}
+    <li>Aucun insecte trouvé.</li>
+{% endfor %}
+
 {% endblock %}
