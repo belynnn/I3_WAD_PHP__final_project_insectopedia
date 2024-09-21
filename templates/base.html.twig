@@ -16,14 +16,19 @@
             <h1>INSECTOPEDIA</h1>
             <ul>
                 <li><a href="/a_propos">À propos</a></li>
-                <li><a href="{{ path ('app_login') }}">Se connecter</a></li>
-                <li><a href="{{ path ('app_logout') }}">Se déconnecter</a></li>
 
-                {% if is_granted(app.user, "ROLE_ADMIN") %}
-                    <li><a href="{{ path ('app_logout') }}">Administration</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path ('app_logout') }}">Se déconnecter</a></li>
+                {% else %}
+                    <li><a href="{{ path ('app_login') }}">Se connecter</a></li>
+                {% endif %}
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li><a href="{{ path ('app_login') }}">Administration</a></li>
                 {% endif %}
             </ul>
         </nav>
+        
         {% block body %}
         {% endblock %}
     </body>
