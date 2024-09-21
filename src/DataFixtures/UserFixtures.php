@@ -23,7 +23,6 @@ class UserFixtures extends Fixture
         for ($i=0; $i < 5; $i++) { 
             $user = new User();
             $user->setEmail("user". $i ."@gmail.com");
-            $user->setRoles(['ROLE_USER']);
 
             $hashedPassword = $this->passwordHasher->hashPassword($user, 'coucou');
 

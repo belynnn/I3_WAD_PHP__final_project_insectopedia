@@ -15,11 +15,10 @@
         <nav>
             <h1>INSECTOPEDIA</h1>
             <ul>
-                <li><a href="/a_propos">À propos</a></li>
-
                 {% if app.user %}
                     <li><a href="{{ path ('app_logout') }}">Se déconnecter</a></li>
                 {% else %}
+                    <li><a href="{{ path ('app_register') }}">S'inscrire</a></li>
                     <li><a href="{{ path ('app_login') }}">Se connecter</a></li>
                 {% endif %}
 
@@ -28,7 +27,7 @@
                 {% endif %}
             </ul>
         </nav>
-        
+
         {% block body %}
         {% endblock %}
     </body>
