@@ -12,6 +12,19 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav>
+            <h1>INSECTOPEDIA</h1>
+            <ul>
+                <li><a href="/a_propos">À propos</a></li>
+                <li><a href="{{ path ('app_login') }}">Se connecter</a></li>
+                <li><a href="{{ path ('app_logout') }}">Se déconnecter</a></li>
+
+                {% if is_granted(app.user, "ROLE_ADMIN") %}
+                    <li><a href="{{ path ('app_logout') }}">Administration</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% block body %}
+        {% endblock %}
     </body>
 </html>

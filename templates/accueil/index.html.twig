@@ -3,20 +3,9 @@
 {% block title %}Hello AccueilController!{% endblock %}
 
 {% block body %}
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp-8-2/htdocs/___final_project_insectopedia/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>C:/xampp-8-2/htdocs/___final_project_insectopedia/templates/accueil/index.html.twig</code></li>
-    </ul>
-</div>
-
-<nav>
-    <ul>
-        <li><a href="/a_propos">À propos</a></li>
-    </ul>
-</nav>
+    {% if app.user %}
+        Bienvenue au site, {{ app.user.email }}
+    {% else %}
+        Bienvenue au site
+    {% endif %}
 {% endblock %}
