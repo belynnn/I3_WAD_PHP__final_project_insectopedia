@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Insect;
 use App\Form\InsectType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FormsController extends AbstractController
 {
@@ -16,9 +19,22 @@ class FormsController extends AbstractController
     }
 
     #[Route('/administration/add_insect', name: 'app_formAddInsect')]
-    public function show(): Response
+    public function show(Request $req, ManagerRegistry $doctrine): Response
     {
-        $form = $this->createForm(InsectType::class);
+        $insect = new Insect();
+
+        $form = $this->createForm(InsectType::class, $insect);
+
+        // gérer l'objet Request, contiendra GET ou POST
+        $form->handleRequest($req);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $doctrine->getManager();
+            $em->persist($insect);
+            $em->flush();
+
+            // dd($insect);
+        }
 
         $vars = ['formInsect' => $form];
 
