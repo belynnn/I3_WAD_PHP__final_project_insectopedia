@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InsectController!{% endblock %}
+{% block title %}Liste des insectes{% endblock %}
 
 {% block body %}
+    <h1>LISTE DES INSECTES</h1>
 
-LISTE DES INSECTES
-{% for insecte in insectes %}
-    <li>{{ insecte.nomInsecte }}</li>
-{% else %}
-    <li>Aucun insecte trouvé.</li>
-{% endfor %}
+    {% for insect in insects %}
+        <li><a href="{{ path ('app_insect', {id: insect.id}) }}">{{ insect.nameInsect }}</a></li>
+        <div><img src="{{ insect.image }}" width="250px" /></div>
+    {% else %}
+        <li>Aucun insecte trouvé.</li>
+    {% endfor %}
 
 {% endblock %}

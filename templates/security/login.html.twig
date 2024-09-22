@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
     <form method="post">
@@ -17,6 +17,7 @@
         <h1 class="h3 mb-3 font-weight-normal">Formulaire de connexion</h1>
         <label for="username">Email</label>
         <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+        
         <label for="password">Mot de passe</label>
         <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
 

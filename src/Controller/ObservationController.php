@@ -11,8 +11,6 @@ class ObservationController extends AbstractController
     #[Route('/observation', name: 'app_observation')]
     public function index(): Response
     {
-        return $this->render('observation/index.html.twig', [
-            'controller_name' => 'ObservationController',
-        ]);
+        return $this->render('observation/index.html.twig');
     }
 }

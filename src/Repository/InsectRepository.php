@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\Insecte;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\Insect;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
- * @extends ServiceEntityRepository<Insecte>
+ * @extends ServiceEntityRepository<Insect>
  */
-class InsecteRepository extends ServiceEntityRepository
+class InsectRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Insecte::class);
+        parent::__construct($registry, Insect::class);
     }
 
     //    /**
-    //     * @return Insecte[] Returns an array of Insecte objects
+    //     * @return Insect[] Returns an array of Insect objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class InsecteRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Insecte
+    //    public function findOneBySomeField($value): ?Insect
     //    {
     //        return $this->createQueryBuilder('i')
     //            ->andWhere('i.exampleField = :val')

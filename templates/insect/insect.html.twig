@@ -1,7 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InsectController!{% endblock %}
+{% block title %}{{ insect.nameInsect }}{% endblock %}
 
 {% block body %}
 
+    <div>
+        <h1>{{ insect.nameInsect }} - {{ insect.species }}</h1>
+        <p>{{ insect.describedBy }} - {{ insect.yearDescribed|date('Y') }}</p>
+        <img src="{{ insect.image }}" width="250px" />
+    </div>
+
+    <div>
+        <h2>Classification</h2>
+        <ul>
+            <li>Règne : {{ insect.kingdom }}</li>
+            <li>Embranchement : {{ insect.phylum }}</li>
+            <li>Classe : {{ insect.class }}</li>
+            <li>Ordre : {{ insect.orderInsect }}</li>
+            <li>Famille : {{ insect.family }}</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Description</h2>
+        {{ insect.description }}
+    </div>
+    
 {% endblock %}
