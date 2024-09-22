@@ -6,7 +6,7 @@
 
     {% if is_granted("ROLE_ADMIN") %}
         <h1>ADMINISTRATION</h1>
-        <a class="nav-link" href="#">Ajouter un insecte dans la base de données</a>
+        <a class="nav-link" href="{{ path ('app_formAddInsect') }}">Ajouter un insecte dans la base de données</a>
     {% endif %}
 
 {% endblock %}

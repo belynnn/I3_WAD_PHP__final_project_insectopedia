@@ -13,7 +13,7 @@ class InsectFixtures extends Fixture
     {
         // $faker = Factory::create('fr_BE');
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 2; $i++) {
             $insect = new Insect([
                 'nameInsect' => "Paon-du-Jour",
                 'species' => "Aglais io",
