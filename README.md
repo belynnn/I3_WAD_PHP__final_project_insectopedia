@@ -46,11 +46,11 @@ Il faut pouvoir s'inscrire avec les informations suivantes
    * un pseudo
    * une adresse mail (même si celle-ci n'est pas vraie)
    * un mot de passe
-   * une image de profil
+   * une image de profil (todo)
    
 2 points important sont à prendre en compte
    * le hash du mot de passe
-   * la gestion de l'uuid de l'image de profil
+   * la gestion de l'uuid de l'image de profil (todo)
 
 #### Futures améliorations envisageable 
 * le hash de l'adresse mail
@@ -63,9 +63,16 @@ Une fois l'utilisateurice inscrit·e, celleux pourront avoir accès à leur page
 * La possibilité de visiter la page de profil de n'importe chaque utilisateurices
 * La possibilité de suivre quelconque utilisateurices
 
+### 5. Liste d'insectes et pages des insectes
+L'un des points principaux du projet est de pouvoir observer des insectes, donc une liste des insectes encodés en base de données sera constamment présente pour n'importe quel type d'utilisateurice. Pour l'instant, il s'agit d'un simple lien directement dans la navbar.
+
+#### Futures améliorations envisageable 
+* Créer une recherche AJAX permettant de chercher des insectes via seulement une partie du nom, en plus du lien dans la navbar
+
 ### Un tout grand merci à
 * [ArcureDev](https://www.twitch.tv/arcuredev), pour son temps, son coaching et son aide précieuse !
 * [GuLhe_le_GuJ](https://www.twitch.tv/gulhe_le_guj), pour sa micro-formation GIT qui m'a grandement aidé !
+* Ronan, pour sa gentillesse et son précieux temps pour m'aider en Symfony !
 * Ma compagne et mes 3 chatons d'amours, pour leurs supports inconditionnels !
 ___
 ___
