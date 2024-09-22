@@ -21,6 +21,11 @@ class FormsController extends AbstractController
     #[Route('/administration/add_insect', name: 'app_formAddInsect')]
     public function show(Request $req, ManagerRegistry $doctrine): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            // Redirige vers la page d'accueil si l'utilisateur n'a pas le rôle ADMIN
+            return $this->redirectToRoute('app_accueil');
+        }
+
         $insect = new Insect();
 
         $form = $this->createForm(InsectType::class, $insect);
@@ -32,8 +37,6 @@ class FormsController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($insect);
             $em->flush();
-
-            // dd($insect);
         }
 
         $vars = ['formInsect' => $form];

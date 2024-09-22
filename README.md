@@ -69,6 +69,13 @@ L'un des points principaux du projet est de pouvoir observer des insectes, donc 
 #### Futures améliorations envisageable 
 * Créer une recherche AJAX permettant de chercher des insectes via seulement une partie du nom, en plus du lien dans la navbar
 
+### 6. Formulaire pour ajouter des insectes en base de données
+Mon premier choix s'était porté sur l'utilisation d'une API, afin de pouvoir recherche l'insecte observé via une source de données externe, histoire de ne pas devoir tout encoder "à la main", mais pour le développement du projet, je vais faire en sorte de travailler avec peu de données, en encodant seulement 10 insectes. Pour cela, j'ai besoin d'un formulaire me permettant de les encoder.
+Ce formulaire sera uniquement disponible aux administateurices du site et donc ne devra pas être disponible pour les visiteureuses et utilisateurices simples.
+
+#### Futures améliorations envisageable 
+* Utiliser une API pour ne plus devoir les encoder à la main
+
 ### Un tout grand merci à
 * [ArcureDev](https://www.twitch.tv/arcuredev), pour son temps, son coaching et son aide précieuse !
 * [GuLhe_le_GuJ](https://www.twitch.tv/gulhe_le_guj), pour sa micro-formation GIT qui m'a grandement aidé !

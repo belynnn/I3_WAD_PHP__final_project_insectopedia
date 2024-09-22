@@ -3,13 +3,19 @@
 {% block title %}Liste des insectes{% endblock %}
 
 {% block body %}
-    <h1>LISTE DES INSECTES</h1>
+    <h1 class="mb-3">Liste des insectes</h1>
 
     {% for insect in insects %}
-        <li><a href="{{ path ('app_insect', {id: insect.id}) }}">{{ insect.nameInsect }}</a></li>
-        <div><img src="{{ insect.image }}" width="250px" /></div>
+        <a href="{{ path ('app_insect', {id: insect.id}) }}">{{ insect.nameInsect }}</a>
+
+        {% if insect.image is not null and insect.image != 'null' %}
+            <div><img src="{{ insect.image }}" width="250px" /></div>
+        {% else %}
+            <div><img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" /></div>
+        {% endif %}
+
     {% else %}
-        <li>Aucun insecte trouvé.</li>
+        Aucun insecte trouvé.
     {% endfor %}
 
 {% endblock %}

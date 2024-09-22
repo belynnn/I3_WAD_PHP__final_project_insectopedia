@@ -7,7 +7,11 @@
     <div>
         <h1>{{ insect.nameInsect }} - {{ insect.species }}</h1>
         <p>{{ insect.describedBy }} - {{ insect.yearDescribed|date('Y') }}</p>
-        <img src="{{ insect.image }}" width="250px" />
+        {% if insect.image is not null and insect.image != 'null' %}
+            <img src="{{ insect.image }}" width="250px" />
+        {% else %}
+            <img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" />
+        {% endif %}
     </div>
 
     <div>

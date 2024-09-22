@@ -3,10 +3,46 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-    <h1>AJOUTER UN INSECTE EN BASE DE DONNEES</h1>
+    <h1 class="mb-3">Ajoute un insecte en base de données</h1>
 
-    {{ form_start (formInsect) }}
-    <input type="submit" value="Encoder"
-    {{ form_end (formInsect) }}
+    {{ form_errors(formInsect) }}
+
+    {{ form_start(formInsect) }}
+        {{ form_row(formInsect.nameInsect, {
+            label: 'Nom de l\'insecte'
+        }) }}
+        {{ form_row(formInsect.species, {
+            label: 'Espèce'
+        }) }}
+        {{ form_row(formInsect.description) }}
+        {{ form_row(formInsect.kingdom, {
+            label: 'Règne'
+        }) }}
+        {{ form_row(formInsect.phylum, {
+            label: 'Embranchement'
+        }) }}
+        {{ form_row(formInsect.class, {
+            label: 'Classe'
+        }) }}
+        {{ form_row(formInsect.orderInsect, {
+            label: 'Ordre'
+        }) }}
+        {{ form_row(formInsect.family, {
+            label: 'Famille'
+        }) }}
+        {{ form_row(formInsect.describedBy, {
+            label: 'Décris par'
+        }) }}
+        {{ form_row(formInsect.yearDescribed, {
+            label: 'Année de description'
+        }) }}
+        {{ form_row(formInsect.activity, {
+            label: 'Activité(s)'
+        }) }}
+        {{ form_row(formInsect.cycle) }}
+        {{ form_row(formInsect.image) }}
+
+        <br><button type="submit" class="btn btn-primary">Encoder</button>
+    {{ form_end(formInsect) }}
 
 {% endblock %}
