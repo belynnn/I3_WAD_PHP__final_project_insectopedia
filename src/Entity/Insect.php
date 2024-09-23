@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InsectRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -53,9 +55,16 @@ class Insect
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    /**
+     * @var Collection<int, User>
+     */
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'InsectsFavorite')]
+    private Collection $usersFavorite;
+
     public function __construct(array $init = [])
     {
-        $this->hydrate($init); 
+        $this->hydrate($init);
+        $this->usersFavorite = new ArrayCollection(); 
     }
 
     public function hydrate (array $vals = []){
@@ -224,6 +233,33 @@ class Insect
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsersFavorite(): Collection
+    {
+        return $this->usersFavorite;
+    }
+
+    public function addUsersFavorite(User $usersFavorite): static
+    {
+        if (!$this->usersFavorite->contains($usersFavorite)) {
+            $this->usersFavorite->add($usersFavorite);
+            $usersFavorite->addInsectsFavorite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersFavorite(User $usersFavorite): static
+    {
+        if ($this->usersFavorite->removeElement($usersFavorite)) {
+            $usersFavorite->removeInsectsFavorite($this);
+        }
 
         return $this;
     }

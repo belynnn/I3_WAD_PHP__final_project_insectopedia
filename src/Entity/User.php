@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $pseudo = null;
+
+    /**
+     * @var Collection<int, Insect>
+     */
+    #[ORM\ManyToMany(targetEntity: Insect::class, inversedBy: 'usersLike')]
+    private Collection $InsectsFavorite;
+
+    public function __construct()
+    {
+        $this->InsectsFavorite = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +132,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPseudo(string $pseudo): static
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Insect>
+     */
+    public function getInsectsFavorite(): Collection
+    {
+        return $this->InsectsFavorite;
+    }
+
+    public function addInsectsFavorite(Insect $insectsFavorite): static
+    {
+        if (!$this->InsectsFavorite->contains($insectsFavorite)) {
+            $this->InsectsFavorite->add($insectsFavorite);
+        }
+
+        return $this;
+    }
+
+    public function removeInsectsFavorite(Insect $insectsFavorite): static
+    {
+        $this->InsectsFavorite->removeElement($insectsFavorite);
 
         return $this;
     }

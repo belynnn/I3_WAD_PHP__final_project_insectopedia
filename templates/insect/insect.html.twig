@@ -3,6 +3,17 @@
 {% block title %}{{ insect.nameInsect }}{% endblock %}
 
 {% block body %}
+    {% if is_granted("ROLE_USER") %}
+        {% if isFavorite %}
+            <a href="{{ path('remove_favorite', { id: insect.id }) }}" class="btn btn-danger">
+                Retirer des favoris
+            </a>
+        {% else %}
+            <a href="{{ path('add_favorite', { id: insect.id }) }}" class="btn btn-primary">
+                Ajouter aux favoris
+            </a>
+        {% endif %}
+    {% endif %}
 
     <div>
         <h1>{{ insect.nameInsect }} - {{ insect.species }}</h1>

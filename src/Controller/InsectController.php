@@ -30,15 +30,25 @@ class InsectController extends AbstractController
     {
         // Récupérer l'insect correspondant à l'ID
         $insect = $entityManager->getRepository(Insect::class)->find($id);
-
+    
         // Gérer le cas où l'insect n'est pas trouvé
         if (!$insect) {
             throw $this->createNotFoundException('insect non trouvé');
         }
-
-        // Passer l'insect au template Twig
+    
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser();
+    
+        // Vérifier si l'insect est déjà dans les favoris
+        $isFavorite = false;
+        if ($user) {
+            $isFavorite = $user->getInsectsFavorite()->contains($insect);
+        }
+    
+        // Passer l'insect et l'info "favorite" au template Twig
         return $this->render('insect/insect.html.twig', [
             'insect' => $insect,
+            'isFavorite' => $isFavorite,
         ]);
     }
 }
