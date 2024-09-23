@@ -26,22 +26,24 @@ class InsectController extends AbstractController
 
     // Page d'un insect spécifique
     #[Route('/insect/{id}', name: 'app_insect')]
-    public function showInsect(int $id, EntityManagerInterface $entityManager): Response
+    public function showInsect(int $id, ManagerRegistry $doctrine): Response
     {
-        // Récupérer l'insect correspondant à l'ID
-        $insect = $entityManager->getRepository(Insect::class)->find($id);
-    
+        $em = $doctrine->getManager();
+        $rep = $em->getRepository(Insect::class);
+
+        $insect = $rep->find($id);
+
         // Gérer le cas où l'insect n'est pas trouvé
         if (!$insect) {
-            throw $this->createNotFoundException('Insect non trouvé');
+            throw $this->createNotFoundException('Insecte non trouvé');
         }
-    
+
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();
     
         // Vérifier si l'insect est déjà dans les favoris de l'utilisateur
         $isFavorite = false;
-        if ($user && $user->getInsectsFavorite()->contains($insect)) {
+        if ($user->getInsectsFavorite()->contains($insect)) {
             $isFavorite = true;
         }
     
