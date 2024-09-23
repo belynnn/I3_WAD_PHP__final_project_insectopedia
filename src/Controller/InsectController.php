@@ -33,19 +33,19 @@ class InsectController extends AbstractController
     
         // Gérer le cas où l'insect n'est pas trouvé
         if (!$insect) {
-            throw $this->createNotFoundException('insect non trouvé');
+            throw $this->createNotFoundException('Insect non trouvé');
         }
     
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();
     
-        // Vérifier si l'insect est déjà dans les favoris
+        // Vérifier si l'insect est déjà dans les favoris de l'utilisateur
         $isFavorite = false;
-        if ($user) {
-            $isFavorite = $user->getInsectsFavorite()->contains($insect);
+        if ($user && $user->getInsectsFavorite()->contains($insect)) {
+            $isFavorite = true;
         }
     
-        // Passer l'insect et l'info "favorite" au template Twig
+        // Passer l'insect et le statut "favorite" au template
         return $this->render('insect/insect.html.twig', [
             'insect' => $insect,
             'isFavorite' => $isFavorite,
