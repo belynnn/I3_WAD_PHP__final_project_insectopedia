@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Insect;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -43,7 +42,7 @@ class InsectController extends AbstractController
     
         // Vérifier si l'insect est déjà dans les favoris de l'utilisateur
         $isFavorite = false;
-        if ($user->getInsectsFavorite()->contains($insect)) {
+        if ($user && $user->getInsectsFavorite()->contains($insect)) {
             $isFavorite = true;
         }
     

@@ -2,9 +2,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
@@ -14,10 +15,24 @@ class UserController extends AbstractController
         return $this->render('user/index.html.twig');
     }
 
-    #[Route('/user/profil', name: 'app_user')]
-    public function userProfil(): Response
+    #[Route('/user/profil', name: 'app_userProfil')]
+    public function userProfil(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig');
+        // Supposons que vous utilisez l'authentification Symfony
+        $user = $this->getUser(); // Récupère l'utilisateur courant
+    
+        // Assurez-vous que l'utilisateur est connecté
+        if (!$user) {
+            throw $this->createAccessDeniedException('Vous devez être connecté pour accéder à ce profil.');
+        }
+    
+        // Récupérer les insectes favoris de l'utilisateur
+        $favoriteInsects = $user->getInsectsFavorite();
+    
+        // Rendre la vue avec les insectes favoris
+        return $this->render('user/user_profil.html.twig', [
+            'favoriteInsects' => $favoriteInsects,
+        ]);
     }
 
     #[Route('/user/observations', name: 'app_user')]

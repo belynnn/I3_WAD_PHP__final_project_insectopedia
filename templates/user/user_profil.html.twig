@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1>Insectes favoris</h1>
+
+    {% for insect in favoriteInsects %}
+        <div>
+            <strong>{{ insect.nameInsect }}</strong> ({{ insect.species }})
+            <br><img src="{{ insect.image }}" alt="{{ insect.nameInsect }}" width="250px">
+        </div>
+    {% else %}
+        <div>
+            <p>Aucun insecte favori.</p>
+        </div>
+    {% endfor %}
+{% endblock %}
