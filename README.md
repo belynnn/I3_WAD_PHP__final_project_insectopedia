@@ -1,6 +1,8 @@
 English below
 # TODO
-- Supprimer les fichiers obsolètes (index.php par ex.)
+- Ajouter le lien de l'insecte spécifique dans la page des favoris
+- Enlever le type Date de la propriété yearDescribed - Année de description et mettre int ? dans l'entité Insect
+- Modifier "Activité" par "Saisonnalité" dans l'entité Insect
 
 # [FR] 🐛 Insectopedia - PHP Final Project
 Repo contenant l'élaboration du projet final du cours de PHP, de la formation Web Application Develope, organisée par le centre de formation Interface3, à Bruxelles.
