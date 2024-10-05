@@ -1,0 +1,15 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ObservationController!{% endblock %}
+
+{% block body %}
+    <h2 class="mb-4">Encoder une observation</h2>
+
+    {{ form_start(form) }}
+        {{ form_row(form.insecteName) }}
+        {{ form_row(form.photo) }}
+        <button type="submit">Soumettre</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -14,7 +14,7 @@ class Observation
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nomInsecte = null;
+    private ?string $insecteName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
@@ -38,15 +38,14 @@ class Observation
         return $this->id;
     }
 
-    public function getNomInsecte(): ?string
+    public function getInsecteName(): ?string
     {
-        return $this->nomInsecte;
+        return $this->insecteName;
     }
 
-    public function setNomInsecte(string $nomInsecte): static
+    public function setInsecteName(string $insecteName): self
     {
-        $this->nomInsecte = $nomInsecte;
-
+        $this->insecteName = $insecteName;
         return $this;
     }
 
@@ -55,10 +54,9 @@ class Observation
         return $this->photo;
     }
 
-    public function setPhoto(?string $photo): static
+    public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
-
         return $this;
     }
 }
