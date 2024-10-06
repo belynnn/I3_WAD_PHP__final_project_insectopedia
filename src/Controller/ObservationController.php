@@ -15,8 +15,12 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class ObservationController extends AbstractController
 {
-    #[Route('/observation/all', name: 'app_observation')]
-    public function show(ManagerRegistry $doctrine)
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Liste de toutes les observations
+    //
+    #[Route('/observations', name: 'app_observations')]
+    public function showObservations(ManagerRegistry $doctrine)
     {
         $em = $doctrine->getManager();
         $rep = $em->getRepository(Observation::class);
@@ -24,18 +28,46 @@ class ObservationController extends AbstractController
         $observations = $rep->findAll();
         $vars = ['observations' => $observations];
         
-        return $this->render('observation/index.html.twig', $vars);
+        return $this->render('observation/showObservations.html.twig', $vars);
     }
 
-    #[Route('/observation/new', name: 'app_observation_new')]
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Page d'une observation spécifique
+    //
+    #[Route('/observations/afficher/{id}', name: 'app_observation')]
+    public function showObservation(int $id, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $rep = $em->getRepository(Observation::class);
+
+        $observation = $rep->find($id);
+
+        // Gérer le cas où l'observation n'est pas trouvée
+        if (!$observation) {
+            throw $this->createNotFoundException('Observation non trouvé');
+        }
+    
+        return $this->render('observation/showObservation.html.twig', [
+            'observation' => $observation,
+        ]);
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Page pour afficher le formulaire afin d'encoder une observation
+    //
+    #[Route('/observations/ajouter', name: 'app_add_observation')]
+    public function addObservation(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $observation = new Observation();
         $form = $this->createForm(ObservationType::class, $observation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //
             // Gestion de l'image
+            //
             $photoFile = $form->get('photo')->getData();
             
             if ($photoFile) {
@@ -59,10 +91,10 @@ class ObservationController extends AbstractController
             $entityManager->persist($observation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_observation_success');
+            return $this->redirectToRoute('app_observations');
         }
 
-        return $this->render('forms/addObservation.html.twig', [
+        return $this->render('observation/addObservation.html.twig', [
             'form' => $form->createView(),
         ]);
     }
