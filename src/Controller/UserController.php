@@ -28,10 +28,14 @@ class UserController extends AbstractController
     
         // Récupérer les insectes favoris de l'utilisateur
         $favoriteInsects = $user->getInsectsFavorite();
+
+        // Récupérer les observations favorites de l'utilisateur
+        $favoriteObservations = $user->getObservationsFavorite();
     
         // Rendre la vue avec les insectes favoris
         return $this->render('user/user_profil.html.twig', [
             'favoriteInsects' => $favoriteInsects,
+            'favoriteObservations' => $favoriteObservations,
         ]);
     }
 

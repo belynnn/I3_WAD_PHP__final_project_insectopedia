@@ -5,11 +5,11 @@
 {% block body %}
     {% if is_granted("ROLE_USER") %}
         {% if isFavorite %}
-            <a href="{{ path('remove_favorite', { id: insect.id }) }}" class="btn btn-danger">
+            <a href="{{ path('insect_remove_favorite', { id: insect.id }) }}" class="btn btn-danger">
                 Retirer des favoris
             </a>
         {% else %}
-            <a href="{{ path('add_favorite', { id: insect.id }) }}" class="btn btn-primary">
+            <a href="{{ path('insect_add_favorite', { id: insect.id }) }}" class="btn btn-primary">
                 Ajouter aux favoris
             </a>
         {% endif %}

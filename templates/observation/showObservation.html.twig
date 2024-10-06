@@ -3,6 +3,18 @@
 {% block title %}{{ observation.insecteName }}{% endblock %}
 
 {% block body %}
+    {% if is_granted("ROLE_USER") %}
+        {% if isFavorite %}
+            <a href="{{ path('observation_remove_favorite', { id: observation.id }) }}" class="btn btn-danger">
+                Retirer des favoris
+            </a>
+        {% else %}
+            <a href="{{ path('observation_add_favorite', { id: observation.id }) }}" class="btn btn-primary">
+                Ajouter aux favoris
+            </a>
+        {% endif %}
+    {% endif %}
+
     <div>
         <h1>{{ observation.insecteName }}</h1>
         {% if observation.photo is not null and observation.photo != null %}

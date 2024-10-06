@@ -47,9 +47,19 @@ class ObservationController extends AbstractController
         if (!$observation) {
             throw $this->createNotFoundException('Observation non trouvé');
         }
+        
+        // Récupérer l'utilisateur connecté
+        $user = $this->getUser();
+    
+        // Vérifier si l'observation est déjà dans les favoris de l'utilisateur
+        $isFavorite = false;
+        if ($user && $user->getObservationsFavorite()->contains($observation)) {
+            $isFavorite = true;
+        }
     
         return $this->render('observation/showObservation.html.twig', [
             'observation' => $observation,
+            'isFavorite' => $isFavorite,
         ]);
     }
 

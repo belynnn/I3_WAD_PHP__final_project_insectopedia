@@ -44,9 +44,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Insect::class, inversedBy: 'usersLike')]
     private Collection $InsectsFavorite;
 
+    /**
+     * @var Collection<int, Observation>
+     */
+    #[ORM\ManyToMany(targetEntity: Observation::class, inversedBy: 'users')]
+    private Collection $user_observation;
+
     public function __construct()
     {
         $this->InsectsFavorite = new ArrayCollection();
+        $this->user_observation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +163,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeInsectsFavorite(Insect $insectsFavorite): static
     {
         $this->InsectsFavorite->removeElement($insectsFavorite);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Observation>
+     */
+    public function getObservationsFavorite(): Collection
+    {
+        return $this->user_observation;
+    }
+
+    public function addObservationsFavorite(Observation $userObservation): static
+    {
+        if (!$this->user_observation->contains($userObservation)) {
+            $this->user_observation->add($userObservation);
+        }
+
+        return $this;
+    }
+
+    public function removeObservationsFavorite(Observation $userObservation): static
+    {
+        $this->user_observation->removeElement($userObservation);
 
         return $this;
     }
