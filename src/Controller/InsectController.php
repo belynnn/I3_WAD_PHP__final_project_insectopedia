@@ -3,15 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Insect;
+use App\Repository\InsectRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class InsectController extends AbstractController
 {
     // Liste de tous les insects
-    #[Route('/insect/all', name: 'app_insectAll')]
+    #[Route('/insectes/all', name: 'app_insectAll')]
     public function show(ManagerRegistry $doctrine)
     {
         $em = $doctrine->getManager();
@@ -24,7 +27,7 @@ class InsectController extends AbstractController
     }
 
     // Page d'un insect spécifique
-    #[Route('/insect/{id}', name: 'app_insect')]
+    #[Route('/insecte/{id}', name: 'app_insect')]
     public function showInsect(int $id, ManagerRegistry $doctrine): Response
     {
         $em = $doctrine->getManager();
@@ -51,5 +54,22 @@ class InsectController extends AbstractController
             'insect' => $insect,
             'isFavorite' => $isFavorite,
         ]);
+    }
+
+    #[Route('insectes/rechercher', name: 'app_insects_search')]
+    public function rechercherInsectes(Request $request, InsectRepository $insectRepository): JsonResponse
+    {
+        $term = $request->query->get('term');
+        $insects = $insectRepository->findInsectsBySearchTerm($term);
+    
+        $results = [];
+        foreach ($insects as $insect) {
+            $results[] = [
+                'id' => $insect->getId(),
+                'nameInsect' => $insect->getNameInsect(),
+            ];
+        }
+    
+        return new JsonResponse($results);
     }
 }

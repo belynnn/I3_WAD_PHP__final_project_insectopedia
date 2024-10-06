@@ -16,6 +16,15 @@ class InsectRepository extends ServiceEntityRepository
         parent::__construct($registry, Insect::class);
     }
 
+    public function findInsectsBySearchTerm(string $term): array
+    {
+        return $this->createQueryBuilder('i')
+            ->where('i.nameInsect LIKE :term')
+            ->setParameter('term', '%' . $term . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Insect[] Returns an array of Insect objects
     //     */

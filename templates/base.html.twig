@@ -23,10 +23,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
-                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                    </form>
+                    <div class="d-flex search-container">
+                        <input class="form-control me-2" type="search" id="rechercheInsecte" placeholder="Rechercher un insecte..." aria-label="Rechercher">
+                        <ul id="resultatsRecherche" class="suggestions"></ul>
+                    </div>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -67,5 +67,38 @@
 
         {% block body %}
         {% endblock %}
+        <script>
+            document.getElementById('rechercheInsecte').addEventListener('input', function() {
+                let term = this.value;
+
+                // Appel AJAX pour obtenir les suggestions
+                fetch('/insectes/rechercher?term=' + term)
+                    .then(response => response.json())
+                    .then(data => {
+                        let resultatsListe = document.getElementById('resultatsRecherche');
+                        resultatsListe.innerHTML = '';  // Vider les anciens résultats
+
+                        if (data.length === 0) {
+                            resultatsListe.innerHTML = '<li>Aucun insecte trouvé</li>';
+                        } else {
+                            data.forEach(function(insect) {
+                                let li = document.createElement('li');
+                                li.textContent = insect.nameInsect;
+
+                                // Ajouter un gestionnaire d'événements lorsqu'on clique sur une suggestion
+                                li.addEventListener('click', function() {
+                                    // Redirection vers la page spécifique de l'insecte
+                                    window.location.href = `/insecte/${insect.id}`;
+                                });
+
+                                resultatsListe.appendChild(li);
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur:', error);  // Loguer les erreurs pour déboguer
+                    });
+                });
+        </script>
     </body>
 </html>
