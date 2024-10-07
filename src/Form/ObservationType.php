@@ -15,10 +15,21 @@ class ObservationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('insecteName', TextType::class, [
+            ->add('nameInsect', TextType::class, [
                 'label' => 'Nom de l\'insecte',
                 'attr' => ['placeholder' => 'Entrez le nom de l\'insecte']
             ])
+            ->add('primaryColorInsect')
+            ->add('developmentStageInsect')
+            ->add('organismHost')
+            ->add('weather')
+            ->add('temperature')
+            ->add('rateHumidity')
+            ->add('longitude')
+            ->add('latitude')
+            ->add('habitat')
+            ->add('dateObservationRegister')
+            ->add('dateObservation')
             ->add('photo', FileType::class, [
                 'label' => 'Photo de l\'insecte (JPG ou PNG)',
                 'mapped' => false, // Ce champ n'est pas lié à l'entité directement

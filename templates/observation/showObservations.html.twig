@@ -9,7 +9,7 @@
         <div class="row row-cols-3">
             {% for observation in observations %}
                 <div class="col">
-                    <a href="{{ path ('app_observation',   {id: observation.id}) }}">{{ observation.insecteName }}</a>
+                    <a href="{{ path ('app_observation',   {id: observation.id}) }}">{{ observation.nameInsect }}</a>
 
                     {% if observation.photo is not null and observation.photo != 'null' %}
                         <div><img src="../uploads/photos/{{ observation.photo }}" width="250px" height="250px" /></div>

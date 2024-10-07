@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ObservationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ObservationRepository::class)]
@@ -16,7 +17,7 @@ class Observation
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $insecteName = null;
+    private ?string $nameInsect = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
@@ -26,6 +27,39 @@ class Observation
      */
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'ObservationsFavorite')]
     private Collection $usersFavorite;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $primaryColorInsect = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $developmentStageInsect = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $organismHost = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $weather = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $temperature = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $rateHumidity = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $longitude = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $latitude = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $habitat = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateObservationRegister = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateObservation = null;
 
     public function __construct(array $init = [])
     {
@@ -47,14 +81,14 @@ class Observation
         return $this->id;
     }
 
-    public function getInsecteName(): ?string
+    public function getNameInsect(): ?string
     {
-        return $this->insecteName;
+        return $this->nameInsect;
     }
 
-    public function setInsecteName(string $insecteName): self
+    public function setNameInsect(string $nameInsect): self
     {
-        $this->insecteName = $insecteName;
+        $this->nameInsect = $nameInsect;
         return $this;
     }
 
@@ -92,6 +126,138 @@ class Observation
         if ($this->usersFavorite->removeElement($usersFavorite)) {
             $usersFavorite->removeObservationsFavorite($this);
         }
+
+        return $this;
+    }
+
+    public function getPrimaryColorInsect(): ?string
+    {
+        return $this->primaryColorInsect;
+    }
+
+    public function setPrimaryColorInsect(?string $primaryColorInsect): static
+    {
+        $this->primaryColorInsect = $primaryColorInsect;
+
+        return $this;
+    }
+
+    public function getDevelopmentStageInsect(): ?string
+    {
+        return $this->developmentStageInsect;
+    }
+
+    public function setDevelopmentStageInsect(?string $developmentStageInsect): static
+    {
+        $this->developmentStageInsect = $developmentStageInsect;
+
+        return $this;
+    }
+
+    public function getOrganismHost(): ?string
+    {
+        return $this->organismHost;
+    }
+
+    public function setOrganismHost(?string $organismHost): static
+    {
+        $this->organismHost = $organismHost;
+
+        return $this;
+    }
+
+    public function getWeather(): ?string
+    {
+        return $this->weather;
+    }
+
+    public function setWeather(?string $weather): static
+    {
+        $this->weather = $weather;
+
+        return $this;
+    }
+
+    public function getTemperature(): ?float
+    {
+        return $this->temperature;
+    }
+
+    public function setTemperature(?float $temperature): static
+    {
+        $this->temperature = $temperature;
+
+        return $this;
+    }
+
+    public function getRateHumidity(): ?float
+    {
+        return $this->rateHumidity;
+    }
+
+    public function setRateHumidity(?float $rateHumidity): static
+    {
+        $this->rateHumidity = $rateHumidity;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?float $longitude): static
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?float $latitude): static
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getHabitat(): ?string
+    {
+        return $this->habitat;
+    }
+
+    public function setHabitat(?string $habitat): static
+    {
+        $this->habitat = $habitat;
+
+        return $this;
+    }
+
+    public function getDateObservationRegister(): ?\DateTimeInterface
+    {
+        return $this->dateObservationRegister;
+    }
+
+    public function setDateObservationRegister(?\DateTimeInterface $dateObservationRegister): static
+    {
+        $this->dateObservationRegister = $dateObservationRegister;
+
+        return $this;
+    }
+
+    public function getDateObservation(): ?\DateTimeInterface
+    {
+        return $this->dateObservation;
+    }
+
+    public function setDateObservation(?\DateTimeInterface $dateObservation): static
+    {
+        $this->dateObservation = $dateObservation;
 
         return $this;
     }

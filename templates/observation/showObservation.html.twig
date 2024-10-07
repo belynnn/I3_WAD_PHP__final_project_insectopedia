@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ observation.insecteName }}{% endblock %}
+{% block title %}{{ observation.nameInsect }}{% endblock %}
 
 {% block body %}
     {% if is_granted("ROLE_USER") %}
@@ -16,9 +16,9 @@
     {% endif %}
 
     <div>
-        <h1>{{ observation.insecteName }}</h1>
+        <h1>{{ observation.nameInsect }}</h1>
         {% if observation.photo is not null and observation.photo != null %}
-            <img src="../uploads/photos/{{ observation.photo }}" width="250px" height="250px" />
+            <img src="../../uploads/photos/{{ observation.photo }}" width="250px" height="250px" />
         {% else %}
             <img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" height="250px" />
         {% endif %}

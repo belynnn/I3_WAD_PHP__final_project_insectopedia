@@ -8,7 +8,18 @@
     <h2 class="mb-4">Encoder une observation</h2>
 
     {{ form_start(form) }}
-        {{ form_row(form.insecteName) }}
+        {{ form_row(form.nameInsect) }}
+        {{ form_row(form.primaryColorInsect) }}
+        {{ form_row(form.developmentStageInsect) }}
+        {{ form_row(form.organismHost) }}
+        {{ form_row(form.weather) }}
+        {{ form_row(form.temperature) }}
+        {{ form_row(form.rateHumidity) }}
+        {{ form_row(form.longitude) }}
+        {{ form_row(form.latitude) }}
+        {{ form_row(form.habitat) }}
+        {{ form_row(form.dateObservationRegister) }}
+        {{ form_row(form.dateObservation) }}
         {{ form_row(form.photo) }}
         <button type="submit">Soumettre</button>
     {{ form_end(form) }}
