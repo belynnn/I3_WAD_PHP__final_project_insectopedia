@@ -21,8 +21,8 @@
 
     {% for observation in favoriteObservations %}
         <div>
-            <strong>{{ observation.insecteName }}</strong>
-            <br><img src="{{ observation.photo }}" alt="{{ observation.insecteName }}" width="250px">
+            <strong>{{ observation.nameInsect }}</strong>
+            <br><img src="{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px">
         </div>
     {% else %}
         <div>
