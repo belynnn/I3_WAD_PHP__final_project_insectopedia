@@ -17,7 +17,7 @@
 
     <div>
         <h1>{{ insect.nameInsect }} - {{ insect.species }}</h1>
-        <p>{{ insect.describedBy }} - {{ insect.yearDescribed|date('Y') }}</p>
+        <p>{{ insect.describedBy }} - {{ insect.yearDescribed }}</p>
         {% if insect.image is not null and insect.image != 'null' %}
             <img src="{{ insect.image }}" width="250px" />
         {% else %}

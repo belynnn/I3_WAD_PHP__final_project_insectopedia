@@ -43,14 +43,14 @@ class Insect
     #[ORM\Column(length: 255)]
     private ?string $describedBy = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $yearDescribed = null;
+    #[ORM\Column(length: 255)]
+    private ?string $yearDescribed = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $activity = null;
+    private ?string $activityTime = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $cycle = null;
+    private ?string $lifeCycle = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -189,38 +189,38 @@ class Insect
         return $this;
     }
 
-    public function getYearDescribed(): ?\DateTimeInterface
+    public function getYearDescribed(): ?string
     {
         return $this->yearDescribed;
     }
 
-    public function setYearDescribed(?\DateTimeInterface $yearDescribed): static
+    public function setYearDescribed(string $yearDescribed): static
     {
         $this->yearDescribed = $yearDescribed;
 
         return $this;
     }
 
-    public function getActivity(): ?string
+    public function getActivityTime(): ?string
     {
-        return $this->activity;
+        return $this->activityTime;
     }
 
-    public function setActivity(?string $activity): static
+    public function setActivityTime(?string $activityTime): static
     {
-        $this->activity = $activity;
+        $this->activityTime = $activityTime;
 
         return $this;
     }
 
-    public function getCycle(): ?string
+    public function getLifeCycle(): ?string
     {
-        return $this->cycle;
+        return $this->lifeCycle;
     }
 
-    public function setCycle(?string $cycle): static
+    public function setLifeCycle(?string $lifeCycle): static
     {
-        $this->cycle = $cycle;
+        $this->lifeCycle = $lifeCycle;
 
         return $this;
     }

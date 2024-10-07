@@ -30,7 +30,7 @@
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path ('app_insectAll') }}">Insectes</a>
+                            <a class="nav-link" href="{{ path ('app_insects') }}">Insectes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path ('app_observations') }}">Observations</a>
@@ -88,7 +88,7 @@
                                 // Ajouter un gestionnaire d'événements lorsqu'on clique sur une suggestion
                                 li.addEventListener('click', function() {
                                     // Redirection vers la page spécifique de l'insecte
-                                    window.location.href = `/insecte/${insect.id}`;
+                                    window.location.href = `/insectes/afficher/${insect.id}`;
                                 });
 
                                 resultatsListe.appendChild(li);

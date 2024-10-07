@@ -24,11 +24,9 @@ class InsectType extends AbstractType
             ->add('orderInsect')
             ->add('family')
             ->add('describedBy')
-            ->add('yearDescribed', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('activity')
-            ->add('cycle')
+            ->add('yearDescribed')
+            ->add('activityTime')
+            ->add('lifeCycle')
             ->add('image')
         ;
     }

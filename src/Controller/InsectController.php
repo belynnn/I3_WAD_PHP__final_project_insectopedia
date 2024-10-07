@@ -13,9 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class InsectController extends AbstractController
 {
-    // Liste de tous les insects
-    #[Route('/insectes/all', name: 'app_insectAll')]
-    public function show(ManagerRegistry $doctrine)
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Liste de tous les insectes
+    //
+    #[Route('/insectes', name: 'app_insects')]
+    public function showInsects(ManagerRegistry $doctrine)
     {
         $em = $doctrine->getManager();
         $rep = $em->getRepository(Insect::class);
@@ -23,11 +26,14 @@ class InsectController extends AbstractController
         $insects = $rep->findAll();
         $vars = ['insects' => $insects];
         
-        return $this->render('insect/listInsect.html.twig', $vars);
+        return $this->render('insect/showInsects.html.twig', $vars);
     }
 
-    // Page d'un insect spécifique
-    #[Route('/insecte/{id}', name: 'app_insect')]
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Page d'un insecte spécifique
+    //
+    #[Route('/insectes/afficher/{id}', name: 'app_insect')]
     public function showInsect(int $id, ManagerRegistry $doctrine): Response
     {
         $em = $doctrine->getManager();
@@ -50,13 +56,17 @@ class InsectController extends AbstractController
         }
     
         // Passer l'insect et le statut "favorite" au template
-        return $this->render('insect/insect.html.twig', [
+        return $this->render('insect/showInsect.html.twig', [
             'insect' => $insect,
             'isFavorite' => $isFavorite,
         ]);
     }
 
-    #[Route('insectes/rechercher', name: 'app_insects_search')]
+    ///////////////////////////////////////////////////////////////////////
+    //
+    // Barre de recherche liée aux insectes
+    //
+    #[Route('/insectes/rechercher', name: 'app_insects_search')]
     public function rechercherInsectes(Request $request, InsectRepository $insectRepository): JsonResponse
     {
         $term = $request->query->get('term');
