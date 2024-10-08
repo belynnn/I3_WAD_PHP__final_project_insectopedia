@@ -12,7 +12,8 @@
                     <a href="{{ path ('app_insect', {id: insect.id}) }}">{{ insect.nameInsect }}</a>
 
                     {% if insect.image is not null and insect.image != null %}
-                        <div><img src="../uploads/images/{{ insect.image }}" width="250px" height="250px" /></div>
+                        {# <div><img src="../uploads/images/{{ insect.image }}" width="250px" height="250px" /></div> #}
+                        <div><img src="{{ insect.image }}" style="width: 275px; max-width: 366px; height: 200px; max-height: 250px;" /></div>
                     {% else %}
                         <div><img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" height="250px" /></div>
                     {% endif %}

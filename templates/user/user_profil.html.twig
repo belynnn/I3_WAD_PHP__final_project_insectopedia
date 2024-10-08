@@ -5,28 +5,36 @@
 {% block body %}
     <h1>Aloha, {{ app.user.pseudo }} !</h1>
     <h2>Insectes favoris</h2>
-
-    {% for insect in favoriteInsects %}
-        <div>
-            <strong>{{ insect.nameInsect }}</strong> ({{ insect.species }})
-            <br><img src="{{ insect.image }}" alt="{{ insect.nameInsect }}" width="250px">
+    <div class="container text-center mb-5">
+        <div class="row row-cols-4">
+        {% for insect in favoriteInsects %}
+            <div>
+                <a href="{{ path ('app_insect', {id: insect.id}) }}">
+                    <p>{{ insect.nameInsect }}</p>
+                    <img src="{{ insect.image }}" alt="{{ insect.nameInsect }}" width="250px">
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <p>Aucun insecte favori.</p>
+            </div>
+        {% endfor %}
         </div>
-    {% else %}
-        <div>
-            <p>Aucun insecte favori.</p>
-        </div>
-    {% endfor %}
+    </div>
 
     <h2>Observations favorites</h2>
-
-    {% for observation in favoriteObservations %}
-        <div>
-            <strong>{{ observation.nameInsect }}</strong>
-            <br><img src="{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px">
-        </div>
-    {% else %}
-        <div>
-            <p>Aucun insecte favori.</p>
-        </div>
+    <div class="container text-center">
+        <div class="row row-cols-4">
+        {% for observation in favoriteObservations %}
+            <div class="col">
+                <strong>{{ observation.nameInsect }}</strong>
+                <br><img src="{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px">
+            </div>
+        {% else %}
+            <div>
+                <p>Aucun insecte favori.</p>
+            </div>
     {% endfor %}
+        </div>
+    </div>
 {% endblock %}
