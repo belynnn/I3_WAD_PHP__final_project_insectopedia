@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Insect;
 use App\Entity\Observation;
 use App\Form\ObservationType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -9,6 +10,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
