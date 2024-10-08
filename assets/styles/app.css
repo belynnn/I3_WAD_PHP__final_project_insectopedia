@@ -11,19 +11,23 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  position: relative;
 }
 
 /* Liste de suggestions */
 .suggestions {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  position: absolute;
-  top: 40px;
   width: 96.5%;
+  max-height: 200px; /* Hauteur maximale de la liste */
+  overflow-y: auto;  /* Activer le défilement vertical */
+  top: 40px;
+  border: 1px solid #ccc; /* Bordure pour bien visualiser la liste */
+  border-radius: 5px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none; /* Enlever les puces de la liste */
+  background: white; /* Arrière-plan blanc pour la liste */
+  position: absolute; /* Pour un positionnement correct */
+  z-index: 1000; /* Assurer que la liste soit au-dessus d'autres éléments */
 }
 
 /* Style des éléments de suggestion */
