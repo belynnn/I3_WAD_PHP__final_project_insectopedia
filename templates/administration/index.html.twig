@@ -5,7 +5,7 @@
 {% block body %}
 
     {% if is_granted("ROLE_ADMIN") %}
-        <h1 class="mb-3">Administration</h1>
+        <h1 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Administration</h1>
         <a href="{{ path ('app_formAddInsect') }}">Ajouter un insecte dans la base de données</a>
     {% endif %}
 

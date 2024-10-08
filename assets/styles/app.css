@@ -1,37 +1,14 @@
-/* Styles pour le conteneur de recherche */
-.search-container {
-    position: relative;
-    width: 250px;
-    margin: 0 auto;
+.bg-gradient-green{
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity)) !important;
+    background-image: var(--bs-gradient) !important;
 }
 
-/* Barre de recherche */
-#rechercheInsecte {
+.bg-gradient-white{
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)) !important;
+}
+
+.swiper{
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Liste de suggestions */
-.suggestions {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    position: absolute;
-    top: 40px;
-    width: 96.5%;
-}
-
-/* Style des éléments de suggestion */
-.suggestions li {
-    padding: 10px;
-    cursor: pointer;
-}
-
-.suggestions li:hover {
-    background-color: #f0f0f0;
+    height: 300px;
 }

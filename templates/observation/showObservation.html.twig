@@ -16,7 +16,7 @@
     {% endif %}
 
     <div>
-        <h1>{{ observation.nameInsect }}</h1>
+        <h1 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">{{ observation.nameInsect }}</h1>
         {% if observation.photo is not null and observation.photo != null %}
             <img src="../../uploads/photos/{{ observation.photo }}" width="250px" height="250px" />
         {% else %}
