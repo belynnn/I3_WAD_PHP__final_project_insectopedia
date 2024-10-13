@@ -69,3 +69,107 @@ npm -v
 ```
 npm install
 ```
+
+## Problème CSS - ne prenait pas en compte un autre fichier css
+```
+C:\xampp-8-2\htdocs\___final_project_insectopedia>npm run watch
+
+> watch
+> encore dev --watch
+
+Running webpack ...
+
+  Error: Duplicate name "app" already exists as an Entrypoint. The entry names between addEntry(), addEntries(), and addStyleEntry() must be unique.
+
+  - WebpackConfig.js:963 WebpackConfig.validateNameIsNewEntry
+    [___final_project_insectopedia]/[@symfony]/webpack-encore/lib/WebpackConfig.js:963:19
+
+  - WebpackConfig.js:314 WebpackConfig.addEntry
+    [___final_project_insectopedia]/[@symfony]/webpack-encore/lib/WebpackConfig.js:314:14
+
+  - index.js:233 Encore.addEntry
+    [___final_project_insectopedia]/[@symfony]/webpack-encore/index.js:233:23
+
+  - EncoreProxy.js:51 Proxy.minDistance
+    [___final_project_insectopedia]/[@symfony]/webpack-encore/lib/EncoreProxy.js:51:53
+
+  - webpack.config.js:24 Object.<anonymous>
+    C:/xampp-8-2/htdocs/___final_project_insectopedia/webpack.config.js:24:6
+
+  - loader:1469 Module._compile
+    node:internal/modules/cjs/loader:1469:14
+
+  - loader:1548 Module._extensions..js
+    node:internal/modules/cjs/loader:1548:10
+
+  - loader:1288 Module.load
+    node:internal/modules/cjs/loader:1288:32
+
+  - loader:1104 Module._load
+    node:internal/modules/cjs/loader:1104:12
+
+  - loader:1311 Module.require
+    node:internal/modules/cjs/loader:1311:19
+
+  - helpers:179 require
+    node:internal/modules/helpers:179:18
+
+  - webpack-cli.js:204 WebpackCLI.tryRequireThenImport
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:204:22
+
+  - webpack-cli.js:1404 loadConfigByPath
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1404:38
+
+  - webpack-cli.js:1510 WebpackCLI.loadConfig
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1510:44
+
+  - webpack-cli.js:1785 WebpackCLI.createCompiler
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1785:33
+
+  - webpack-cli.js:1890 WebpackCLI.runWebpack
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1890:31
+
+  - webpack-cli.js:912 Command.<anonymous>
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:912:32
+
+  - index.js:922 Command.listener [as _actionHandler]
+    [___final_project_insectopedia]/[commander]/index.js:922:31
+
+  - index.js:1503 Command._parseCommand
+    [___final_project_insectopedia]/[commander]/index.js:1503:14
+
+  - index.js:1443 Command._dispatchSubcommand
+    [___final_project_insectopedia]/[commander]/index.js:1443:18
+
+  - index.js:1460 Command._parseCommand
+    [___final_project_insectopedia]/[commander]/index.js:1460:12
+
+  - index.js:1292 Command.parse
+    [___final_project_insectopedia]/[commander]/index.js:1292:10
+
+  - index.js:1318 Command.parseAsync
+    [___final_project_insectopedia]/[commander]/index.js:1318:10
+
+  - webpack-cli.js:1372 Command.<anonymous>
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1372:32
+
+  - task_queues:95 process.processTicksAndRejections
+    node:internal/process/task_queues:95:5
+
+  - async Promise.all
+
+  - webpack-cli.js:1376 async WebpackCLI.run
+    [___final_project_insectopedia]/[webpack-cli]/lib/webpack-cli.js:1376:9
+
+  - bootstrap.js:9 async runCLI
+    [___final_project_insectopedia]/[webpack-cli]/lib/bootstrap.js:9:9
+```
+
+### Solution
+Après avoir créé un fichier "searchbar.css", celui-ci n'était pas pris en compte.
+En ayant suivi les étapes afin d'ajouter un nouvel "entry" dans le fichier "webpack.config.js", j'avais ajouté le bout de code ".addEntry('app', './assets/styles/searchbar.css')", sans avoir changé le "app", qui existait déjà.
+
+J'ai dû suivre les étapes suivantes :
+- Allez dans le fichier "webpack.config.js"
+- Trouver la ligne "Encore", afin de gérer les "entry points"
+- Ajouter, à la ligne, le bout de code ".addEntry('searchbar', './assets/styles/searchbar.css')"

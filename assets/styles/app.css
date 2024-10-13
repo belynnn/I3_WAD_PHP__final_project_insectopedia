@@ -1,45 +1,3 @@
-/* Styles pour le conteneur de recherche */
-.search-container {
-  position: relative;
-  width: 250px;
-  margin: 0 auto;
-}
-
-/* Barre de recherche */
-#rechercheInsecte {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  position: relative;
-}
-
-/* Liste de suggestions */
-.suggestions {
-  width: 96.5%;
-  max-height: 200px; /* Hauteur maximale de la liste */
-  overflow-y: auto;  /* Activer le défilement vertical */
-  top: 40px;
-  border: 1px solid #ccc; /* Bordure pour bien visualiser la liste */
-  border-radius: 5px;
-  padding: 0;
-  margin: 0;
-  list-style-type: none; /* Enlever les puces de la liste */
-  background: white; /* Arrière-plan blanc pour la liste */
-  position: absolute; /* Pour un positionnement correct */
-  z-index: 1000; /* Assurer que la liste soit au-dessus d'autres éléments */
-}
-
-/* Style des éléments de suggestion */
-.suggestions li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestions li:hover {
-  background-color: #f0f0f0;
-}
-
 .bg-gradient-green{
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity)) !important;
@@ -48,25 +6,4 @@
 
 .bg-gradient-white{
     background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)) !important;
-}
-
-.swiper {
-  width: 100%;
-  height: 20%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
 }
