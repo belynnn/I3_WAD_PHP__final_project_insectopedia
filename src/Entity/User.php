@@ -20,6 +20,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\OneToMany(mappedBy: 'createdBy', targetEntity: Observation::class)]
+    private Collection $observationsCreated;
+
     #[ORM\Column(length: 180)]
     private ?string $email = null;
 
@@ -54,11 +57,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->InsectsFavorite = new ArrayCollection();
         $this->user_observation = new ArrayCollection();
+        $this->observationsCreated = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getObservationsCreated(): Collection
+    {
+        return $this->observationsCreated;
     }
 
     public function getEmail(): ?string

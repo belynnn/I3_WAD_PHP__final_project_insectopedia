@@ -16,6 +16,10 @@ class Observation
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    #[ORM\JoinColumn(nullable: false)] // Empêche les valeurs NULL
+    private ?User $createdBy = null;
+
     #[ORM\Column(length: 255)]
     private ?string $nameInsect = null;
 
@@ -79,6 +83,18 @@ class Observation
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $user): self
+    {
+        $this->createdBy = $user;
+
+        return $this;
     }
 
     public function getNameInsect(): ?string

@@ -3,20 +3,22 @@
 {% block title %}{{ observation.nameInsect }}{% endblock %}
 
 {% block body %}
-    {% if is_granted("ROLE_USER") %}
-        {% if isFavorite %}
-            <a href="{{ path('observation_remove_favorite', { id: observation.id }) }}" class="btn btn-danger">
-                Retirer des favoris
-            </a>
-        {% else %}
-            <a href="{{ path('observation_add_favorite', { id: observation.id }) }}" class="btn btn-primary">
-                Ajouter aux favoris
-            </a>
+    <div class="mb-2">
+        {% if is_granted("ROLE_USER") %}
+            {% if isFavorite %}
+                <a href="{{ path('observation_remove_favorite', { id: observation.id }) }}" class="btn btn-danger">
+                    Retirer des favoris
+                </a>
+            {% else %}
+                <a href="{{ path('observation_add_favorite', { id: observation.id }) }}" class="btn btn-success">
+                    Ajouter aux favoris
+                </a>
+            {% endif %}
         {% endif %}
-    {% endif %}
+    </div>
 
     <div>
-        <h1 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">{{ observation.nameInsect }}</h1>
+        <h1 class="bg-gradient-green mb-3 px-4 pb-3 pt-2 text-white">{{ observation.nameInsect }}</h1>
         {% if observation.photo is not null and observation.photo != null %}
             <img src="../../uploads/photos/{{ observation.photo }}" width="250px" height="250px" />
         {% else %}

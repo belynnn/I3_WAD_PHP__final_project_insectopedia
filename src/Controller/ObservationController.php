@@ -100,6 +100,10 @@ class ObservationController extends AbstractController
                 $observation->setPhoto($newFilename);
             }
 
+            // Associer l'utilisateur connecté à l'observation
+            $user = $this->getUser(); // Récupère l'utilisateur connecté
+            $observation->setCreatedBy($user);
+
             $entityManager->persist($observation);
             $entityManager->flush();
 
