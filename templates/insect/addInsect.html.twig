@@ -1,48 +1,111 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    <script defer src="{{ asset('js/searchbar.js') }}"></script>
+{% endblock %}
+
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-    <h1 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Ajoute un insecte en base de données</h1>
+    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Ajouter un insecte en base de données</h2>
 
     {{ form_errors(formInsect) }}
 
-    {{ form_start(formInsect) }}
-        {{ form_row(formInsect.nameInsect, {
-            label: 'Nom de l\'insecte'
-        }) }}
-        {{ form_row(formInsect.species, {
-            label: 'Espèce'
-        }) }}
-        {{ form_row(formInsect.description) }}
-        {{ form_row(formInsect.kingdom, {
-            label: 'Règne'
-        }) }}
-        {{ form_row(formInsect.phylum, {
-            label: 'Embranchement'
-        }) }}
-        {{ form_row(formInsect.class, {
-            label: 'Classe'
-        }) }}
-        {{ form_row(formInsect.orderInsect, {
-            label: 'Ordre'
-        }) }}
-        {{ form_row(formInsect.family, {
-            label: 'Famille'
-        }) }}
-        {{ form_row(formInsect.describedBy, {
-            label: 'Décris par'
-        }) }}
-        {{ form_row(formInsect.yearDescribed, {
-            label: 'Année de description'
-        }) }}
-        {{ form_row(formInsect.activityTime, {
-            label: 'Activité(s)'
-        }) }}
-        {{ form_row(formInsect.lifeCycle) }}
-        {{ form_row(formInsect.image) }}
+    {{ form_start(formInsect, {'attr': {'class': 'needs-validation'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.nameInsect, {
+                    'label': 'Nom de l\'insecte',
+                    'attr': {'class': 'form-control', 'id': 'nameInsect'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.species, {
+                    'label': 'Espèce',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
 
-        <br><button type="submit" class="btn btn-primary">Encoder</button>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.description, {
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.kingdom, {
+                    'label': 'Règne',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.phylum, {
+                    'label': 'Embranchement',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.class, {
+                    'label': 'Classe',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.orderInsect, {
+                    'label': 'Ordre',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.family, {
+                    'label': 'Famille',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.describedBy, {
+                    'label': 'Décris par',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.yearDescribed, {
+                    'label': 'Année de description',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(formInsect.activityTime, {
+                    'label': 'Activité(s)',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formInsect.lifeCycle, {
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(formInsect.image, {
+                'attr': {'class': 'form-control'}
+            }) }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Encoder</button>
     {{ form_end(formInsect) }}
-
 {% endblock %}

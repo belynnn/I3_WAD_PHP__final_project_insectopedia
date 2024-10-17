@@ -9,6 +9,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ObservationRepository::class)]
+#[ORM\HasLifecycleCallbacks] // Indiquer l'utilisation des événements de cycle de vie
 class Observation
 {
     #[ORM\Id]
@@ -17,7 +18,7 @@ class Observation
     private ?int $id = null;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
-    #[ORM\JoinColumn(nullable: false)] // Empêche les valeurs NULL
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $createdBy = null;
 
     #[ORM\Column(length: 255)]
@@ -26,9 +27,6 @@ class Observation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
 
-    /**
-     * @var Collection<int, User>
-     */
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'ObservationsFavorite')]
     private Collection $usersFavorite;
 
@@ -77,6 +75,14 @@ class Observation
             if (method_exists($this,$method)){
                 $this->$method ($val);
             }
+        }
+    }
+
+    #[ORM\PrePersist]
+    public function prePersist(): void
+    {
+        if ($this->dateObservationRegister === null) {
+            $this->dateObservationRegister = new \DateTime();
         }
     }
 

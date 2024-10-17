@@ -28,6 +28,11 @@
     background: white; /* Arrière-plan blanc pour la liste */
     position: absolute; /* Pour un positionnement correct */
     z-index: 1000; /* Assurer que la liste soit au-dessus d'autres éléments */
+    display: none;
+}
+
+.suggestions.active {
+    display: block;
 }
 
 /* Style des éléments de suggestion */

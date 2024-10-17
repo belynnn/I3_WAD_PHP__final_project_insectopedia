@@ -1,10 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block javascripts %}
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ asset('js/swiper-init.js') }}"></script>
-{% endblock %}
-
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
@@ -31,7 +26,6 @@
                             {% endif %}
                         </div>
 
-                        <!-- Section droite : Statistiques et lien d'inscription -->
                         <div class="col-md-6 d-flex justify-content-center align-items-center">
                             <div class="text-center">
                                 <h3>Statistiques</h3>
@@ -64,7 +58,6 @@
                             {% endif %}
                         </div>
 
-                        <!-- Section droite : Statistiques et lien d'inscription -->
                         <div class="col-md-6 d-flex justify-content-center align-items-center">
                             <div class="text-center">
                                 <h3>Statistiques</h3>
@@ -79,11 +72,8 @@
     </div>
     
     <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Dernières observations</h2>
-
     <div class="swiper mySwiper">
-        <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-            <!-- Slides -->
                 {% for observation in observations %}
                 <div class="swiper-slide">
                     {% if observation.photo is not null and observation.photo != null %}
@@ -97,14 +87,12 @@
                     <p>Aucune observation trouvée.</p>
                 {% endfor %}
         </div>
-        <!-- If we need pagination -->
+
         <div class="swiper-pagination"></div>
 
-        <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
 
-        <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
     </div>
 {% endblock %}

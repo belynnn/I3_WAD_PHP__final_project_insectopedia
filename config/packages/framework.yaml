@@ -9,6 +9,8 @@ framework:
     #esi: true
     #fragments: true
 
+    translator: { enabled: false }
+
 when@test:
     framework:
         test: true

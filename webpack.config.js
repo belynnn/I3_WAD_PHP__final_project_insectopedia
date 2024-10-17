@@ -22,8 +22,6 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('app_css', './assets/styles/app.css')
-    .addEntry('searchbar', './assets/styles/searchbar.css')
-    .addEntry('swiper', './assets/styles/swiper.css')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
