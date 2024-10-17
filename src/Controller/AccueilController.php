@@ -14,8 +14,20 @@ class AccueilController extends AbstractController
     {
         $observations = $observationRepository->findAll(); // Récupérer toutes les observations
 
+        // Sélectionner une observation au hasard
+        $randomObservation = null;
+        if (!empty($observations)) {
+            $randomKey = array_rand($observations);
+            $randomObservation = $observations[$randomKey];
+        }
+
+        // Compter le nombre total d'observations
+        $totalObservations = count($observations);
+
         return $this->render('accueil/index.html.twig', [
             'observations' => $observations,
+            'randomObservation' => $randomObservation,
+            'totalObservations' => $totalObservations,
         ]);
     }
 }

@@ -7,3 +7,29 @@
 .bg-gradient-white{
     background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)) !important;
 }
+
+
+.swiper .container-fluid {
+    margin: 0 !important; /* Force les remplissages à 0 */
+    padding: 0 !important; /* Force les remplissages à 0 */
+}
+
+.observation-card {
+    position: relative;
+    overflow: hidden; /* Cache tout débordement */
+}
+.observation-image {
+    width: 100%;
+    height: 250px; 
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+}
