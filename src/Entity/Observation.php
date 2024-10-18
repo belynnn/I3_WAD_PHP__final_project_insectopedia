@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Insect;
 
 #[ORM\Entity(repositoryClass: ObservationRepository::class)]
 #[ORM\HasLifecycleCallbacks] // Indiquer l'utilisation des événements de cycle de vie
