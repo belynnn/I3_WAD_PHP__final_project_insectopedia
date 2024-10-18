@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Insect;
 use App\Entity\Observation;
 use App\Form\ObservationType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,21 +46,32 @@ class ObservationController extends AbstractController
 
         // Gérer le cas où l'observation n'est pas trouvée
         if (!$observation) {
-            throw $this->createNotFoundException('Observation non trouvé');
+            throw $this->createNotFoundException('Observation non trouvée');
         }
         
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();
-    
+        
         // Vérifier si l'observation est déjà dans les favoris de l'utilisateur
         $isFavorite = false;
         if ($user && $user->getObservationsFavorite()->contains($observation)) {
             $isFavorite = true;
         }
-    
+
+        // Recherche de l'insecte par son nom
+        $insect = $em->getRepository(Insect::class)->findOneBy(['nameInsect' => $observation->getNameInsect()]);
+
+        // Récupérer l'utilisateur de l'observation
+        $user = $observation->getCreatedBy();
+
+        // Compter le nombre total d'observations réalisées par cet utilisateur
+        $totalObservations = $rep->count(['createdBy' => $user]);
+
         return $this->render('observation/showObservation.html.twig', [
             'observation' => $observation,
             'isFavorite' => $isFavorite,
+            'insect' => $insect, // Ajouter l'insecte trouvé à la vue
+            'totalObservations' => $totalObservations, // Passer le nombre total d'observations à la vue
         ]);
     }
 
