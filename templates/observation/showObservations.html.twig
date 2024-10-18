@@ -39,7 +39,8 @@
         <div class="row row-cols-3">
             {% for observation in observations %}
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
+                    <a class="text-decoration-none text-success" href="{{ path('app_observation', {id: observation.id}) }}">
+                        <div class="card" style="width: 18rem;">
                         {% if observation.photo is not null and observation.photo != 'null' %}
                             <img class="card-img-top" src="../uploads/photos/{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px" height="200px">
                         {% else %}
@@ -47,10 +48,11 @@
                         {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ observation.nameInsect }}</h5>
-                            <p class="card-text">{{ observation.description}}.</p>
-                            <a href="{{ path('app_observation', {id: observation.id}) }}" class="btn btn-primary">Voir les détails</a>
+                            <p class="card-text">{{ observation.description | split(' ')[:10] | join(' ') }}...</p>
+                            <a href="{{ path('app_observation', {id: observation.id}) }}" class="btn btn-success mt-3">Voir plus d'infos</a>
                         </div>
                     </div>
+                    </a>
                 </div>
             {% else %}
                 <p>Aucune observation trouvée.</p>
@@ -69,6 +71,7 @@
                         <tr>
                             <th>Photo</th>
                             <th>Nom de l'insecte</th>
+                            <th>Description</th>
                             <th>Longitude</th>
                             <th>Latitude</th>
                             <th>Pseudo</th>
@@ -86,8 +89,9 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <a href="{{ path('app_observation', {id: observation.id}) }}">{{ observation.nameInsect }}</a>
+                                    <a class="text-success" href="{{ path('app_observation', {id: observation.id}) }}">{{ observation.nameInsect }}</a>
                                 </td>
+                                <td>{{ observation.description | split(' ')[:10] | join(' ') }}...</td>
                                 <td>{{ observation.longitude }}</td>
                                 <td>{{ observation.latitude }}</td>
                                 <td>{{ observation.createdBy.pseudo }}</td>
