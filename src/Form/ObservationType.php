@@ -46,10 +46,10 @@ class ObservationType extends AbstractType
                 'attr' => ['placeholder' => '21, 15.5, ...']
             ])
             ->add('longitude', TextType::class, [
-                'attr' => ['placeholder' => '21.1526']
+                'attr' => ['placeholder' => '4.1526']
             ])
             ->add('latitude', TextType::class, [
-                'attr' => ['placeholder' => '4.1526']
+                'attr' => ['placeholder' => '50.1526']
             ])
             ->add('habitat', TextType::class, [
                 'attr' => ['placeholder' => 'forêt, ville, ...']

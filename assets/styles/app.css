@@ -8,7 +8,6 @@
     background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)) !important;
 }
 
-
 .swiper .container-fluid {
     margin: 0 !important; /* Force les remplissages à 0 */
     padding: 0 !important; /* Force les remplissages à 0 */
@@ -16,11 +15,12 @@
 
 .observation-card {
     position: relative;
-    overflow: hidden; /* Cache tout débordement */
+    overflow: hidden !important; /* Cache tout débordement */
+    height: 350px !important; /* Ajuste cette valeur selon tes besoins */
 }
 .observation-image {
-    width: 100%;
-    height: 250px; 
+    width: 100% !important; /* Assure que l'image s'étend sur toute la largeur */
+    height: 500px !important; /* Ajuste cette valeur selon tes besoins */
 }
 
 .text-overlay {

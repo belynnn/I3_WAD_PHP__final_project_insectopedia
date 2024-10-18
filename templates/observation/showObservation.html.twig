@@ -7,11 +7,11 @@
         {% if is_granted("ROLE_USER") %}
             {% if isFavorite %}
                 <a href="{{ path('observation_remove_favorite', { id: observation.id }) }}" class="btn btn-danger">
-                    🚮
+                    <p class="h4 pt-2 px-2">🚮 Retirer</p>
                 </a>
             {% else %}
-                <a href="{{ path('observation_add_favorite', { id: observation.id }) }}" class="btn btn-success">
-                    🤍
+                <a href="{{ path('observation_add_favorite', { id: observation.id }) }}" class="btn btn-success ">
+                    <p class="h4 pt-2 px-2">🤍 Favoris</p>
                 </a>
             {% endif %}
         {% endif %}
@@ -36,7 +36,7 @@
         </div> 
 
         <div class="col-6">
-            <div class="bg-success p-2 text-center text-white">
+            <div class="bg-success p-2 mb-2 text-center text-white d-flex justify-content-evenly">
                 <p class="h4">{{ observation.createdBy.pseudo }}</p>
                 <p class="h5">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" viewBox="0 0 512 512" width="18" height="18">

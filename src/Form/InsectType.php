@@ -28,7 +28,9 @@ class InsectType extends AbstractType
             ->add('describedBy')
             ->add('yearDescribed')
             ->add('activityTime')
-            ->add('lifeCycle')
+            ->add('lifeCycle', TextType::class, [
+                'label' => 'Cycle de vie',
+            ])
             ->add('image', FileType::class, [
                 'label' => 'Photo de l\'insecte (JPG ou PNG)',
                 'mapped' => false, // Ce champ n'est pas lié à l'entité directement

@@ -6,73 +6,75 @@
 {% block body %}
 	<h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Encoder une observation</h2>
 
-    {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
-    <div class="row mb-3">
-        <div class="col-md-6 position-relative">
-            {{ form_label(form.nameInsect) }}
-            {{ form_widget(form.nameInsect, {'attr': {'class': 'form-control', 'id': 'nameInsect'}}) }}
-            <ul id="resultSearch" class="suggestions">
-                <li>Aucun insecte trouvé</li>
-            </ul>
+    <div class="container">
+        {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6 position-relative">
+                {{ form_label(form.nameInsect) }}
+                {{ form_widget(form.nameInsect, {'attr': {'class': 'form-control', 'id': 'nameInsect'}}) }}
+                <ul id="resultSearch" class="suggestions">
+                    <li>Aucun insecte trouvé</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.primaryColorInsect, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.primaryColorInsect, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            {{ form_row(form.developmentStageInsect, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(form.developmentStageInsect, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.weather, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.weather, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            {{ form_row(form.temperature, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(form.temperature, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.latitude, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.latitude, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            {{ form_row(form.rateHumidity, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(form.rateHumidity, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.longitude, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.longitude, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            {{ form_row(form.organismHost, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(form.organismHost, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.habitat, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.habitat, {'attr': {'class': 'form-control'}}) }}
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form_row(form.dateObservationRegister, {'attr': {'class': 'form-control', 'readonly': true}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.dateObservation, {'attr': {'class': 'form-control'}}) }}
+            </div>
         </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-md-6">
-            {{ form_row(form.dateObservationRegister, {'attr': {'class': 'form-control', 'readonly': true}}) }}
+        <div class="mb-3">
+            {{ form_row(form.description, {'attr': {'class': 'form-control', 'block_name': 'textarea'}}) }}
         </div>
-        <div class="col-md-6">
-            {{ form_row(form.dateObservation, {'attr': {'class': 'form-control'}}) }}
+
+        <div class="mb-3">
+            {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
         </div>
-    </div>
 
-    <div class="mb-3">
-        {{ form_row(form.description, {'attr': {'class': 'form-control', 'block_name': 'textarea'}}) }}
+        <button type="submit" class="btn btn-success">Soumettre</button>
+        {{ form_end(form) }}
     </div>
-
-    <div class="mb-3">
-        {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
-    </div>
-
-    <button type="submit" class="btn btn-success">Soumettre</button>
-    {{ form_end(form) }}
 {% endblock %}
