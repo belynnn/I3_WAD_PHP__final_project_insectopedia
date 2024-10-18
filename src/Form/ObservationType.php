@@ -32,6 +32,7 @@ class ObservationType extends AbstractType
                 'label' => 'Organisme hôte',
                 'attr' => ['placeholder' => 'plante, inconnu, ...']
             ])
+            ->add('description')
             ->add('weather', TextType::class, [
                 'label' => 'Météo',
                 'attr' => ['placeholder' => 'nuageux, ensoleillé, ...']

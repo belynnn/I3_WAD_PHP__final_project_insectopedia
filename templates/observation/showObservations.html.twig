@@ -33,25 +33,32 @@
         <div id="map"></div>
     </div>
 
-    {# GRILLE  #}
-    <div id="gridContainer" class="hidden">
-        <div class="container text-center">
-            <div class="row row-cols-3">
-                {% for observation in observations %}
-                    <div class="col">
-                        <a href="{{ path('app_observation', {id: observation.id}) }}">{{ observation.nameInsect }}</a>
+{# GRILLE #}
+<div id="gridContainer" class="hidden">
+    <div class="container text-center">
+        <div class="row row-cols-3">
+            {% for observation in observations %}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
                         {% if observation.photo is not null and observation.photo != 'null' %}
-                            <div><img src="../uploads/photos/{{ observation.photo }}" width="250px" height="200px" /></div>
+                            <img class="card-img-top" src="../uploads/photos/{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px" height="200px">
                         {% else %}
-                            <div><img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" /></div>
+                            <img class="card-img-top" src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" alt="Image not found" width="250px">
                         {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ observation.nameInsect }}</h5>
+                            <p class="card-text">{{ observation.description}}.</p>
+                            <a href="{{ path('app_observation', {id: observation.id}) }}" class="btn btn-primary">Voir les détails</a>
+                        </div>
                     </div>
-                {% else %}
-                    Aucune observation trouvée.
-                {% endfor %}
-            </div>
+                </div>
+            {% else %}
+                <p>Aucune observation trouvée.</p>
+            {% endfor %}
         </div>
     </div>
+</div>
+
 
     {# LISTE #}
     <div id="listContainer" class="hidden">

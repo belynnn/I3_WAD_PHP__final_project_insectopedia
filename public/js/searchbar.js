@@ -43,7 +43,7 @@ document.getElementById('observation_nameInsect').addEventListener('focusin', fu
 });
 
 document.getElementById('observation_nameInsect').addEventListener('focusout', function() {
-    setTimeout(() => document.getElementById('resultSearch').classList.remove('active'), 100);
+    setTimeout(() => document.getElementById('resultSearch').classList.remove('active'), 200);
 });
 
 document.getElementById('observation_nameInsect').addEventListener('input', function() {

@@ -63,6 +63,9 @@ class Observation
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateObservation = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function __construct(array $init = [])
     {
         $this->hydrate($init);
@@ -280,6 +283,18 @@ class Observation
     public function setDateObservation(?\DateTimeInterface $dateObservation): static
     {
         $this->dateObservation = $dateObservation;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }
