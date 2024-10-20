@@ -1,22 +1,3 @@
-
-#mainnav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-#mainnav ul li {
-    margin: 0 10px;
-}
-#mainnav .dropdown ul {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    list-style: none;
-    padding: 0;
-}
-#mainnav .dropdown:hover ul {
-    display: block;
-}
 #wrapper {
     display: flex;
     height: 89.5vh;

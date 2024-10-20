@@ -5,31 +5,34 @@
 }
 
 .bg-gradient-white{
-    background: linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)) !important;
+    background: linear-gradient(to bottom, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffbd, #ffffff00);
 }
 
-.swiper .container-fluid {
-    margin: 0 !important; /* Force les remplissages à 0 */
-    padding: 0 !important; /* Force les remplissages à 0 */
-}
-
-.observation-card {
-    position: relative;
-    overflow: hidden !important; /* Cache tout débordement */
-    height: 350px !important; /* Ajuste cette valeur selon tes besoins */
-}
-.observation-image {
-    width: 100% !important; /* Assure que l'image s'étend sur toute la largeur */
-    height: 500px !important; /* Ajuste cette valeur selon tes besoins */
-}
-
-.text-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    color: white;
-    padding-top: 10px;
+#how [class*='col-'] {
     text-align: center;
+    white-space: nowrap;
+    min-width: 255px;
+}
+
+#how label {
+    display: block;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 10px; /* Espace entre le label et le texte */
+    color: white;
+    background-color: #74ac00;
+    border: 3px solid white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#how p {
+    font-size: 24px;
+}
+
+.svg-icon {
+    width: 256px; /* Ajustez la taille ici */
+    height: 256px; /* Conserve le ratio */
 }
