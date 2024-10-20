@@ -18,10 +18,21 @@ class ObservationRepository extends ServiceEntityRepository
 
     public function findRandomObservation(): ?Observation
     {
-        return $this->createQueryBuilder('o')
-            ->orderBy('RAND()')
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult();
+        $totalObservations = $this->createQueryBuilder('o')
+        ->select('COUNT(o.id)')
+        ->getQuery()
+        ->getSingleScalarResult();
+
+        if ($totalObservations > 0) {
+            $randomIndex = random_int(0, $totalObservations - 1);
+
+            return $this->createQueryBuilder('o')
+                ->setFirstResult($randomIndex)
+                ->setMaxResults(1)
+                ->getQuery()
+                ->getOneOrNullResult();
+        }
+
+        return null;
     }
 }

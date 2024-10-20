@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('css/searchbar.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+        {% endblock %}
+
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <form method="post">
+    {# <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -23,7 +29,7 @@
 
         <input type="hidden" name="_csrf_token"
             value="{{ csrf_token('authenticate') }}"
-        >
+        > #}
 
         {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -35,8 +41,69 @@
             </div>
         #}
 
-        <button class="btn btn-lg btn-primary" type="submit">
+        {# <button class="btn btn-lg btn-primary" type="submit">
             Se connecter
         </button>
-    </form>
+    </form> #}
+
+    <main id="wrapper">
+        <div id="imgcol" style="background-image: url('{{ randomObservation and randomObservation.photo ? '../uploads/photos/' ~ randomObservation.photo : 'https://answers-afd.microsoft.com/static/images/image-not-found.jpg' }}');">
+            <div class="about-observation">
+                <div class="details">
+                    {% if randomObservation %}
+                        <a href="{{ path('app_observation', { id: randomObservation.id }) }}">
+                            <span>{{ randomObservation.nameInsect }}</span>
+                        </a> observé par
+                        <a href="{{ path('app_userProfil', { pseudo: randomObservation.createdBy.pseudo }) }}">
+                            {{ randomObservation.createdBy.pseudo }}
+                        </a>
+                        <div>
+                            <a href="https://www.google.com/maps?q={{ randomObservation.latitude }},{{ randomObservation.longitude }}">
+                                {{ randomObservation.habitat ?: 'Localisation inconnue' }}
+                            </a>
+                        </div>
+                    {% else %}
+                        <span>Aucune observation disponible</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="formcol">
+            <div class="inner">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            Vous êtes connecté avec l'identifiant {{ app.user.userIdentifier }},
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </div>
+                    {% endif %}
+
+                    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Formulaire de connexion</h2>
+                    <label for="username">Nom d’utilisateur ou adresse électronique</label>
+                    <input type="email" value="{{ last_username }}" name="_username" id="username" class="mb-3 form-control" autocomplete="email" required autofocus>
+
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="_password" id="password" class="mb-3 form-control" autocomplete="current-password" required>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <div class="checkbox mb-3">
+                        <input type="checkbox" name="_remember_me" id="_remember_me">
+                        <label for="_remember_me">Souvenez-vous de moi</label>
+                        {# <a href="{{ path('app_forgot_password') }}">Mot de passe oublié?</a> #}
+                    </div>
+
+                    <button class="btn btn-lg btn-success" type="submit">Se connecter</button>
+                    <div class="mt-3 text-center">
+                        <a href="{{ path('app_register') }}" class="btn btn-secondary">Inscrivez-vous</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 {% endblock %}
