@@ -6,10 +6,12 @@ use App\Entity\Insect;
 use App\Entity\Observation;
 use App\Form\ObservationType;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ObservationRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -123,5 +125,27 @@ class ObservationController extends AbstractController
         return $this->render('observation/addObservation.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/stat/temp', name: 'app_stat_temp')]
+    public function showTemperatureChart(): Response
+    {
+        return $this->render('observation/statTempObs.html.twig');
+    }
+
+    #[Route('/stat/temp-data', name: 'app_stat_temp_data')]
+    public function temperatureData(ObservationRepository $observationRepository): JsonResponse
+    {
+        $observations = $observationRepository->findBy([], ['dateObservation' => 'ASC']);
+
+        $data = [];
+        foreach ($observations as $observation) {
+            $data[] = [
+                'date' => $observation->getDateObservation()->format('Y-m-d'),
+                'temperature' => $observation->getTemperature(),
+            ];
+        }
+
+        return new JsonResponse($data);
     }
 }

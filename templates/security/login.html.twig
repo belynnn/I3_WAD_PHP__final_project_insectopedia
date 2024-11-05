@@ -14,17 +14,11 @@
             <div class="about-observation">
                 <div class="details">
                     {% if randomObservation %}
-                        <a href="{{ path('app_observation', { id: randomObservation.id }) }}">
-                            <span>{{ randomObservation.nameInsect }}</span>
-                        </a> observé par
+                        <a href="{{ path('app_observation', { id: randomObservation.id }) }}">{{ randomObservation.nameInsect }}</a>
+                            - Observé par
                         <a href="{{ path('app_userProfil', { pseudo: randomObservation.createdBy.pseudo }) }}">
                             {{ randomObservation.createdBy.pseudo }}
                         </a>
-                        <div>
-                            <a href="https://www.google.com/maps?q={{ randomObservation.latitude }},{{ randomObservation.longitude }}">
-                                {{ randomObservation.habitat ?: 'Localisation inconnue' }}
-                            </a>
-                        </div>
                     {% else %}
                         <span>Aucune observation disponible</span>
                     {% endif %}
@@ -46,8 +40,8 @@
                         </div>
                     {% endif %}
 
-                    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Formulaire de connexion</h2>
-                    <label for="username">Nom d’utilisateur ou adresse électronique</label>
+                    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white text-center">Connexion</h2>
+                    <label for="username">Nom d'utilisateur ou adresse électronique</label>
                     <input type="email" value="{{ last_username }}" name="_username" id="username" class="mb-3 form-control" autocomplete="email" required autofocus>
 
                     <label for="password">Mot de passe</label>
