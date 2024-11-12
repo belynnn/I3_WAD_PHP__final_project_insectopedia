@@ -2,6 +2,7 @@ English below
 # TODO
 - Modifier "Activité" par "Saisonnalité" dans l'entité Insect
 - Ajouter le lien de l'insecte spécifique dans la page des favoris
+- tester projet prod
 
 #### done
 - Enlever le type Date de la propriété yearDescribed - Année de description et mettre int ? dans l'entité Insect
