@@ -2,7 +2,10 @@ English below
 # TODO
 - Modifier "Activité" par "Saisonnalité" dans l'entité Insect
 - Ajouter le lien de l'insecte spécifique dans la page des favoris
+<<<<<<< HEAD
 - Refacto formulaire observation
+=======
+>>>>>>> 04da445096b0b895f5794d23ca0962e029b53705
 
 #### done
 - Enlever le type Date de la propriété yearDescribed - Année de description et mettre int ? dans l'entité Insect
