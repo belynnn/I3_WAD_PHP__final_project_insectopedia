@@ -1,0 +1,65 @@
+.swiper {
+    width: 100%;
+    height: 20%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.swiper .container-fluid {
+    margin: 0 !important; /* Force les remplissages à 0 */
+    padding: 0 !important; /* Force les remplissages à 0 */
+}
+
+.observation-card {
+    position: relative;
+    overflow: hidden !important; /* Cache tout débordement */
+    height: 400px !important; /* Ajuste cette valeur selon tes besoins */
+}
+.observation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(#ffffff00, #000);
+    opacity: 0.8; /* Ajuste la transparence du dégradé ici */
+}
+
+.observation-image {
+    width: 100% !important; /* Assure que l'image s'étend sur toute la largeur */
+    height: 400px !important; /* Ajuste cette valeur selon tes besoins */
+}
+
+.stats {
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    right: 0;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+}

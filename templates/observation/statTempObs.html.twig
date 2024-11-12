@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistiques des Températures{% endblock %}
+
+{% block body %}
+    <h1>Courbe des Températures des Observations</h1>
+
+    <div class="container">
+        <canvas id="temperatureChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Récupération des données JSON depuis la route /stat/temp-data
+        fetch('/stat/temp-data')
+            .then(response => response.json())
+            .then(data => {
+                const dates = data.map(entry => entry.date);
+                const temperatures = data.map(entry => entry.temperature);
+
+                const ctx = document.getElementById('temperatureChart').getContext('2d');
+                const temperatureChart = new Chart(ctx, {
+                    type: 'line', // Type de graphique (ici, une courbe)
+                    data: {
+                        labels: dates, // Les dates sur l'axe des X
+                        datasets: [{
+                            label: 'Température (°C)',
+                            data: temperatures, // Les températures sur l'axe des Y
+                            borderColor: 'rgba(75, 192, 192, 1)', // Couleur de la ligne
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Couleur de fond
+                            fill: true, // Remplissage sous la courbe
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true // Commence l'axe Y à 0
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Erreur lors de la récupération des données :', error));
+    </script>
+{% endblock %}

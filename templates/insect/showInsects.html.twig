@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des insectes{% endblock %}
+
+{% block body %}
+    <h1 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Liste des insectes</h1>
+
+    <div class="container text-center">
+        <div class="row row-cols-3">
+        {% for insect in insects %}
+            <a class="text-success" href="{{ path ('app_insect', {id: insect.id}) }}">
+                <div class="pt-3 pb-4 mb-2">
+                    <p class="text-uppercase h4">{{ insect.nameInsect }}</p>
+                    {% if insect.image is not null and insect.image != null %}
+                    {# <div><img src="../uploads/images/{{ insect.image }}" width="250px" height="250px" /></div> #}
+                    <div><img src="{{ insect.image }}" style="width: 275px; max-width: 366px; height: 200px; max-height: 250px;" /></div>
+                {% else %}
+                    <div><img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px" height="250px" /></div>
+                {% endif %}
+                </div>
+            </a>
+        {% else %}
+            Aucun insecte trouvé.
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

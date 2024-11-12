@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ insect.nameInsect }}{% endblock %}
+
+{% block body %}
+    {% if is_granted("ROLE_USER") %}
+        {% if isFavorite %}
+            <a href="{{ path('insect_remove_favorite', { id: insect.id }) }}" class="btn btn-danger">
+                Retirer des favoris
+            </a>
+        {% else %}
+            <a href="{{ path('insect_add_favorite', { id: insect.id }) }}" class="btn btn-primary">
+                Ajouter aux favoris
+            </a>
+        {% endif %}
+    {% endif %}
+
+    <div>
+        <p class="h1 bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">{{ insect.nameInsect }} - {{ insect.species }}</p>
+        <p>{{ insect.describedBy }} - {{ insect.yearDescribed }}</p>
+        {% if insect.image is not null and insect.image != null %}
+            {# <img src="../../uploads/images/{{ insect.image }}" width="250px" height="250px" /> #}
+            <div><img src="{{ insect.image }}" width="250px" /></div>
+        {% else %}
+            <img src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" width="250px"  height="250px" />
+        {% endif %}
+    </div>
+
+    <div>
+        <h2>Classification</h2>
+        <ul>
+            <li>Règne : {{ insect.kingdom }}</li>
+            <li>Embranchement : {{ insect.phylum }}</li>
+            <li>Classe : {{ insect.class }}</li>
+            <li>Ordre : {{ insect.orderInsect }}</li>
+            <li>Famille : {{ insect.family }}</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Description</h2>
+        {{ insect.description }}
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,43 @@
+.bg-gradient-green{
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity)) !important;
+    background-image: var(--bs-gradient) !important;
+}
+
+.bg-gradient-white{
+    background: linear-gradient(to bottom, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffd7, #ffffffbd, #ffffff00);
+}
+
+#how [class*='col-'] {
+    text-align: center;
+    white-space: nowrap;
+    min-width: 255px;
+}
+
+#how label {
+    display: block;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 10px; /* Espace entre le label et le texte */
+    color: white;
+    background-color: #599e66 !important;
+    border: 3px solid white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#how p {
+    font-size: 24px;
+}
+
+.svg-icon {
+    width: 256px; /* Ajustez la taille ici */
+    height: 256px; /* Conserve le ratio */
+}
+
+canvas{
+    width: 10%;
+    height: 50vh;
+}

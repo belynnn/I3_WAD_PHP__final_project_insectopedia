@@ -1,0 +1,7 @@
+#map {
+    width: 100%;
+    height: 70vh !important;
+}
+.hidden {
+    display: none;
+}

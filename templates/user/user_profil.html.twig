@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ app.user.pseudo }}{% endblock %}
+
+{% block body %}
+    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Insectes favoris</h2>
+    <div class="container text-center">
+        <div class="row row-cols-3">
+        {% for insect in favoriteInsects %}
+            <a class="text-success" href="{{ path ('app_insect', {id: insect.id}) }}">
+                <div class="pt-3 pb-4 mb-2">
+                    <p class="text-uppercase h4">{{ insect.nameInsect }}</p>
+                    <img src="{{ insect.image }}" alt="{{ insect.nameInsect }}" style="width: 275px; max-width: 366px; height: 200px; max-height: 250px;">
+                </div>
+            </a>
+        {% else %}
+            <div>
+                <p>Aucun insecte favori.</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Observations favorites</h2>
+    <div class="container text-center">
+        <div class="row row-cols-4">
+        {% for observation in favoriteObservations %}
+            <div class="col">
+                <strong>{{ observation.nameInsect }}</strong>
+                <br><img src="{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px">
+            </div>
+        {% else %}
+            <div>
+                <p>Aucun insecte favori.</p>
+            </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}
