@@ -13,21 +13,6 @@ Repo contenant l'élaboration du projet final du cours de PHP, de la formation W
 Le but principal de cette application est de donner accès à des informations spécifiques concernant des insectes que nous avons tendance à mal identifier. Comme par exemple, pouvoir différencier une larve de cétoine, d'une larve d'hanneton, ou encore de reconnaître un frelon européen, d'un frelon asiatique.
 
 ## Outils utilisés
-<<<<<<< HEAD
-| Frontend                                              | Backend                                                            | Base de données             | Gestion de projet                                  | Autres |
-|---|---|---|---|---|
-| **Sémantique**                                        | [PHP](https://www.php.net/)                                        | [SQL](https://sql.sh/)      | [GIT](https://git-scm.com/)                        | [Perplexity AI](https://www.perplexity.ai/) |
-| [HTML](https://developer.mozilla.org/fr/docs/Web/HTML)| [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript) | **Application web de SGBD** | [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) | |
-| **Style**                                             | [AJAX](https://developer.mozilla.org/fr/docs/Glossary/AJAX)        | [phpmyadmin](https://www.phpmyadmin.net/) | [GitHub](https://github.com/)                                             | |
-| [CSS](https://developer.mozilla.org/fr/docs/Web/CSS)  | **Serveur**                                                        | **Système de base de données (SGBD)**     | [Gitmoji](https://gitmoji.dev/)                                           | |
-| [Bootstrap](https://getbootstrap.com/)                | [XAMPP](https://www.apachefriends.org/fr/index.html)               | [MySQL](https://www.mysql.com/fr/)        | **MCD / MLD / Diagrammes / ...**                                          | |
-| **Design**                                            |                                                                    |                                           | [draw.io](https://app.diagrams.net/)                                      | |
-| [Font Awesome](https://fontawesome.com/)              |                                                                    |                                           | [dbdiagram.io](https://dbdiagram.io/home)                                 | |
-| [LOGO](https://logo.com/)                             |                                                                    |                                           |                                                                           | |
-
-### Fonctionnalité principale
-La fonctionnalité principale est de permettre à un·e utilisateurice d'encoder des observations, en partageant différentes informations spécifiques relative à une observation, ainsi que, si l'utilisateurice le souhaite, ajouter 3 photos maximum.
-=======
 | Frontend | Backend | Base de données | Gestion de projet | Autres |
 |---|---|---|---|---|
 | **Sémantique** | [PHP](https://www.php.net/) | [SQL](https://sql.sh/) | [GIT](https://git-scm.com/) | [Perplexity AI](https://www.perplexity.ai/) |
@@ -43,7 +28,6 @@ La fonctionnalité principale est de permettre à un·e utilisateurice d'encoder
 La fonctionnalité principale est de permettre à un·e utilisateurice d'encoder des observations d'insectes, en partageant différentes informations spécifiques relative à cette observation.
 
 Par exemple, je pars en balade dans un bois, je rencontrer une chenille se baladant sur un tronc, je décide de l'encoder via l'application, en prenant une photo, en remplissant un formulaire et je l'ajoute à mon Pokedex !
->>>>>>> feature/observation
 
 ### Liste non exhaustive des autres fonctionnalités
    1. Inscription
@@ -67,43 +51,23 @@ ___
 Création d'un diagramme de classe UML
 ___
 
-<<<<<<< HEAD
-### 3. Fonctionnalité d'inscription
-Pour débuter ce projet, il est primordial d'établir la fonctionnalité d'inscription. Pour cela, l'utilisation de [GIT](https://git-scm.com/) et [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) est d'une aide précieuse, avec la création d'une branche 'develop', ainsi qu'un flow 'feature/inscription', sur base de la branche 'develop'.
-
-Il faut pouvoir s'inscrire avec les informations suivantes
-=======
 ### 2️⃣ Utilisateurices
 #### 🔶 Inscription
 Pour débuter ce projet, il est primordial d'établir la fonctionnalité d'inscription. Pour cela, l'utilisation de [GIT](https://git-scm.com/) et [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) est d'une aide précieuse, avec la création d'une branche 'develop', ainsi qu'un flow 'feature/inscription', sur base de la branche 'develop'.
 
 ##### 🔸 Il faut pouvoir s'inscrire avec les informations suivantes :
->>>>>>> feature/observation
    * un pseudo
    * une adresse mail
    * un mot de passe
    * une image de profil
    
-<<<<<<< HEAD
-2 points important sont à prendre en compte
-=======
 ##### 🔸 2 points important sont à prendre en compte :
->>>>>>> feature/observation
    * le hash du mot de passe
    * la gestion de l'uuid de l'image de profil
 
 #### 🔶 Connexion / Déconnexion
 Une fois l'utilisateurice inscrit·e, celleux pourront avoir accès à leur page de profil privée, afin de pouvoir modifier uniquement leur image de profil. La modification de leur image de profil inclu la suppression de l'ancienne image de profil (à voir si cela est possible).
 
-<<<<<<< HEAD
-#### Futures améliorations envisageable 
-* La possibilité de visiter la page de profil de n'importe chaque utilisateurices
-* La possibilité de suivre quelconque utilisateurices
-
-### Un tout grand merci à
-* [ArcureDev](https://www.twitch.tv/arcuredev), pour son temps, son coaching et son aide précieuse !
-* [GuLhe_le_GuJ](https://www.twitch.tv/gulhe_le_guj), pour sa micro-formation GIT qui m'a grandement aidé !
-=======
 ##### ❇️ Futures améliorations envisageable 
 * Hash de l'adresse mail
 * Gestion de l'uuid de l'image de profil
@@ -147,7 +111,6 @@ ___
 * [ArcureDev](https://www.twitch.tv/arcuredev), pour son temps, son coaching et son aide précieuse !
 * [GuLhe_le_GuJ](https://www.twitch.tv/gulhe_le_guj), pour sa micro-formation GIT et de m'avoir dit "En 25 ans de dev j'ai jamais fais d'UML" quand je bloquais dessus !
 * Ronan, pour sa gentillesse et son précieux temps pour m'aider en Symfony !
->>>>>>> feature/observation
 * Ma compagne et mes 3 chatons d'amours, pour leurs supports inconditionnels !
 ___
 ___
