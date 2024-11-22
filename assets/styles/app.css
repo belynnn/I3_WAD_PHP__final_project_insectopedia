@@ -1,3 +1,17 @@
+body{
+    width: 100%;
+}
+
+body>section {
+    width: 75%;
+    margin: auto;
+}
+
+footer{
+    width: 100%;
+    margin-top: 3em;
+}
+
 .bg-gradient-green{
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-success-rgb),var(--bs-bg-opacity)) !important;
@@ -41,3 +55,4 @@ canvas{
     width: 10%;
     height: 50vh;
 }
+

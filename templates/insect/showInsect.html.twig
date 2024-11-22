@@ -3,6 +3,7 @@
 {% block title %}{{ insect.nameInsect }}{% endblock %}
 
 {% block body %}
+    <section>
     {% if is_granted("ROLE_USER") %}
         {% if isFavorite %}
             <a href="{{ path('insect_remove_favorite', { id: insect.id }) }}" class="btn btn-danger">
@@ -41,5 +42,5 @@
         <h2>Description</h2>
         {{ insect.description }}
     </div>
-    
+    </section>
 {% endblock %}

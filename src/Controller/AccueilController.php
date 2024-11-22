@@ -30,4 +30,10 @@ class AccueilController extends AbstractController
             'totalObservations' => $totalObservations,
         ]);
     }
+
+    #[Route('/apropos', name: 'app_apropos')]
+    public function apropos(): Response
+    {
+        return $this->render('apropos/apropos.html.twig');
+    }
 }

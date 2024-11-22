@@ -3,6 +3,7 @@
 {% block title %}Observations{% endblock %}
 
 {% block body %}
+<section>
     {{ encore_entry_link_tags('observation_css') }}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -97,7 +98,7 @@
             {% endif %}
         </div>
     </div>
-
+</section>
     {# JS #}
     <script>
         var myIcon = L.icon({

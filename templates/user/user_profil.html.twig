@@ -3,16 +3,51 @@
 {% block title %}Profil de {{ app.user.pseudo }}{% endblock %}
 
 {% block body %}
+<section>
+<!-- Section Observations favorites -->
+    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Observations favorites</h2>
+    <div class="container text-center">
+        <div class="row row-cols-4">
+        {% for observation in favoriteObservations %}
+            <div class="col mb-4">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('uploads/photos/' ~ observation.photo) }}" class="card-img-top" alt="{{ observation.nameInsect }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <strong class="card-title">{{ observation.nameInsect }}</strong>
+                        <p class="card-text">
+                            Température : {{ observation.temperature }} °C<br>
+                            Météo : {{ observation.weather }}
+                        </p>
+                        <a href="{{ path('app_observation', {id: observation.id}) }}" class="btn btn-success">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div>
+                <p>Aucune observation favorite.</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    
+    <!-- Section Insectes favoris -->
     <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Insectes favoris</h2>
     <div class="container text-center">
-        <div class="row row-cols-3">
+        <div class="row row-cols-4">
         {% for insect in favoriteInsects %}
-            <a class="text-success" href="{{ path ('app_insect', {id: insect.id}) }}">
-                <div class="pt-3 pb-4 mb-2">
-                    <p class="text-uppercase h4">{{ insect.nameInsect }}</p>
-                    <img src="{{ insect.image }}" alt="{{ insect.nameInsect }}" style="width: 275px; max-width: 366px; height: 200px; max-height: 250px;">
+            <div class="col mb-4">
+                <div class="card shadow-sm">
+                    <img src="{{ (insect.image) }}" class="card-img-top" alt="{{ insect.nameInsect }}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <strong class="card-title">{{ insect.nameInsect }}</strong>
+                        <p class="card-text">
+                            Nom scientifique : {{ insect.species }}<br>
+                            Famille : {{ insect.family }}<br>
+                        </p>
+                        <a href="{{ path('app_insect', {id: insect.id}) }}" class="btn btn-success">Voir plus</a>
+                    </div>
                 </div>
-            </a>
+            </div>
         {% else %}
             <div>
                 <p>Aucun insecte favori.</p>
@@ -20,20 +55,5 @@
         {% endfor %}
         </div>
     </div>
-
-    <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Observations favorites</h2>
-    <div class="container text-center">
-        <div class="row row-cols-4">
-        {% for observation in favoriteObservations %}
-            <div class="col">
-                <strong>{{ observation.nameInsect }}</strong>
-                <br><img src="{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px">
-            </div>
-        {% else %}
-            <div>
-                <p>Aucun insecte favori.</p>
-            </div>
-    {% endfor %}
-        </div>
-    </div>
+</section>
 {% endblock %}

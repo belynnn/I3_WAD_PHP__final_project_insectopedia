@@ -40,6 +40,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path ('app_observations') }}">Explorer</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path ('app_apropos') }}">À propos</a>
+                        </li>
 
                         {% if is_granted("ROLE_ADMIN") %}
                             <li class="nav-item">
@@ -72,5 +75,42 @@
 
         {% block body %}
         {% endblock %}
+        
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <!-- Section About -->
+                    <div class="col-md-4 mb-3">
+                        <h5>À propos</h5>
+                        <p>Ce site est dédié à fournir des informations et services de qualité pour nos utilisateurs. Merci de votre visite !</p>
+                    </div>
+                
+                    <!-- Section Links -->
+                    <div class="col-md-4 mb-3">
+                        <h5>Liens rapides</h5>
+                        <ul class="list-unstyled">
+                        <li><a href="{{ path ('app_accueil') }}" class="text-success text-decoration-none">Accueil</a></li>
+                        <li><a href="#" class="text-success text-decoration-none">Contact</a></li>
+                        <li><a href="{{ path ('app_apropos') }}" class="text-success text-decoration-none">À propos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Section Contact -->
+                    <div class="col-md-4 mb-3">
+                        <h5>Contactez-nous</h5>
+                        <p>
+                        <i class="bi bi-envelope"></i> email@example.com<br>
+                        <i class="bi bi-telephone"></i> +123 456 789<br>
+                        <i class="bi bi-geo-alt"></i> 123 Rue Exemple, Ville
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="text-center mt-3">
+                    <p class="mb-0">&copy; 2024 Insectopedia. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

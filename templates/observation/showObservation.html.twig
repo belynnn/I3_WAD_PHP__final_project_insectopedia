@@ -3,6 +3,7 @@
 {% block title %}{{ observation.nameInsect }}{% endblock %}
 
 {% block body %}
+    <section>
     <div class="mb-3">
         {% if is_granted("ROLE_USER") %}
             {% if isFavorite %}
@@ -75,5 +76,6 @@
         <h2>Description</h2>
         {{ observation.description }}
     </div>
+    </section>
     
 {% endblock %}

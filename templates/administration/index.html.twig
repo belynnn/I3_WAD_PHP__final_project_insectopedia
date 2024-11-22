@@ -3,10 +3,10 @@
 {% block title %}Administration{% endblock %}
 
 {% block body %}
-
+<section>
     {% if is_granted("ROLE_ADMIN") %}
         <h2 class="bg-gradient-green mb-3 px-4 pb-2 pt-2 text-white">Administration</h2>
         <p class="container">➕ <a class="text-success" href="{{ path ('app_formAddInsect') }}">Ajouter un insecte dans la base de données</a></p>
     {% endif %}
-
+</section>
 {% endblock %}
