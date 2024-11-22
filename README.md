@@ -99,12 +99,19 @@ Il suffit d'écrire par exemple "abe" et les insectes ayant "abe" dans leurs nom
 Les noms sont cliquables, afin de se rendre sur la page de l'insecte sélectionné.
 
 ##### ❇️ Futures améliorations envisageable 
-* Essayer de supprimer la petite ligne grise qui se trouve tout la barre de recherche
+* Essayer de supprimer la petite ligne grise qui se trouve sous la barre de recherche
 ___
 
 ### 5️⃣ Observations
+Le but de cette fonctionnalité est de permettre aux utilisateurices d'encoder leurs propres observations d'insectes.
+Pour cela, un formulaire d'ajout est disponible, chaque champs sont obligatoires car certaines données seront utilisées pour mettre en place des statistiques permettant aux utilisateurices de voir, par exemple, quels insectes ont été observés, tel jour, à telle heure, durant combien de degrés et à quel taux d'humidité.
+
+Pour la lecture des observations, j'ai préféré pouvoir donner la possibilité aux utilisateurices de pouvoir les voir, soit sur une carte avec Leaflet JS, soit sur une grille, soit en format tableau.
+
 ##### ❇️ Futures améliorations envisageable 
-* 
+* Créer une pagination pour n'afficher que 25 observations à la fois
+* Voir pour regrouper les marker d'observations sur la carte par groupe, par exemple, s'il y a 54 observations à Bruxelles, au lieu d'afficher 54 marker, de créer une bulle avec le nombre total d'observations : 54.
+
 ___
 ## 💚 Un tout grand merci à
 * [DevGirl_](https://www.twitch.tv/devgirl_), de m'avoir donner envie de reprendre des études et de ne rien lâcher !

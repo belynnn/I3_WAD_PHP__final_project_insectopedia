@@ -35,7 +35,7 @@
                         <a class="text-decoration-none text-success" href="{{ path('app_observation', {id: observation.id}) }}">
                             <div class="card" style="width: 18rem;">
                             {% if observation.photo is not null and observation.photo != 'null' %}
-                                <img class="card-img-top" src="../uploads/photos/{{ observation.photo }}" alt="{{ observation.nameInsect }}" width="250px" height="200px">
+                                <img class="card-img-top" src="../uploads/photos/{{ observation.photo }}" alt="{{ observation.nameInsect }}" style="object-fit: cover; width: 100%; height: 200px;">
                             {% else %}
                                 <img class="card-img-top" src="https://answers-afd.microsoft.com/static/images/image-not-found.jpg" alt="Image not found" width="250px">
                             {% endif %}
